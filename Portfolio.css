@@ -1,0 +1,16 @@
+html{
+    background-color: whitesmoke;
+}
+h1{
+    font:black;
+   
+}
+#heading{
+    
+    text-align: center;
+
+    padding-left: 50px;
+}
+#stuff{
+    background: scroll grey;
+}

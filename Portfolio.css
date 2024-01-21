@@ -13,10 +13,11 @@ h1{
 }
 
  body {
-            font-family: 'Arial', sans-serif;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
          
  }
 
@@ -29,42 +30,113 @@ h1{
      
       
  }
- #info{
-display: flex;
- }
+
+ 
+
  #picture{
-    flex:0.5;
-    
-    padding-left: 20px;
+    flex: 1;
+    padding-top: 5%;
+    padding-left: 10%;
+    margin-right: 5%;
     
  }
+
  #about{
-    flex:auto;
+   
+    width: 40%;
+    padding-top: 80px;
+    padding-right: 15%;
+    padding-left: 20px;
+    background: rgb(252, 249, 249,0) ;
+    font-size: larger;
+    
+     
  }
+#intro-container{
+    display: flex;
+    margin: 0 auto;
+    height: 85vh;
+    width: 98%;  
+    padding: 20px;
+
+
+
+
+}
 
 
 
 section {
-     max-width: 800px;
+     max-width: 95%;
      margin: 0 auto;
      padding: 20px;
 }
+#Projects{
+    background-color:rgba(0, 0, 0, 0.8);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: center;
+    
+
+}
+
+#project-x{
+    display: flex;
+    padding-left: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    
+
+    
+}
+
+
+
+
  h2 {
             color: #333;
  }
- .project {
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #fff;
+ .left-line{
+    border-left: white solid 2px;
+    padding-left: 20px;
+    
+
  }
+ .project-info {
+            display:block;
+            margin-bottom: 20px;
+            padding-right: 30%;
+            padding-left:10% ;
+            border-radius: 5px;
+            color: rgb(255, 255, 255);
+
+            
+            
+ }
+ #technology{
+    display: flex;
+    justify-content: space-around 5px;
+    font-weight: bold;
+    
+
+ }
+ h4{
+    
+    
+    padding: 5px;
+    margin: 5px;
+    
+    
+ }
+ hr{
+     border: 2px solid rgb(237, 239, 241,0.9);
+ }
+
  footer {
-            background-color: #333;
+            background-color: #313131;
             color: #fff;
             text-align: center;
             padding: 1em;
-            position:sticky;
+            position: static;
             bottom: 0;
             width: 100%;
             height: 30px;

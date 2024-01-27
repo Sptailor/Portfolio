@@ -140,7 +140,7 @@ margin-left: 3%;
 }
 .project-display:not(:hover){
 
-   animation:swingingAnimation 2.0s ease-in-out  forwards ;
+   animation:swingingAnimation 1.5s ease-in-out  forwards ;
 }
 @keyframes swingingAnimation {
     0%{
@@ -232,19 +232,49 @@ margin-left: 3%;
 }
 #course{
     
-    background:#ffffff;
-    
-    border:  goldenrod groove 30px;
-    border-radius: 5%;
-    
-    text-align: center;
+    background-color:rgba(239, 238, 238, 0.745);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: center;
+    width: 90%;
+    color: black;
+    border:   black double 20px;
+    border-radius: 10%;
+    text-align: left;
     width: 20vw;
-    height: 15vh;
-    
+    height: 230px;
     margin-bottom: 10px;
+    
+   line-height: normal;
+   padding: 10%;
+
 
 
 }
+#course:hover{
+    transform: scale(1.2)   ;
+    transition: transform 0.6s ease-in-out;
+    text-shadow: #313131;
+    
+
+
+
+
+}
+#course:not(:hover){
+    animation: flip 0.5s ease-in-out;
+}
+@keyframes flip {
+    0% {
+      transform: perspective(800px) rotateY(180deg);
+    }
+    
+    100% {
+      transform: perspective(800px) rotateY(360deg);
+    }
+  }
+  
+  
+
  footer {
             background-color: #313131;
             color: #fff;
@@ -262,6 +292,10 @@ margin-left: 3%;
         flex-direction: column;
         
 
+    }
+    #course{
+        width: 40vh;
+        height: fit-content;
     }
     #about p {
         font-size: smaller; /* Adjust font size for small screens */

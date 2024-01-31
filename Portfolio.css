@@ -30,6 +30,18 @@ background-image: url(images/preffered.jpeg);
             
          
  }
+ .split{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 5%;
+    width: 100vw;
+ }
+ .split-inner{
+    border-bottom: 16px double rgb(80 151 171);
+    padding-bottom: 7px;
+    color: rgb(255, 254, 253);
+    font-size: 136%;
+ }
 
  #outer-nav{
     
@@ -308,6 +320,7 @@ section {
      text-align: center;
 }
 #project-outerContainer{
+display: flex;
 text-align: center;
 width: 100%;
 margin-left: 3%;
@@ -525,7 +538,7 @@ margin-left: 3%;
 
     }
     #course{
-        width: 40vh;
+        width: 28vh;
         height: fit-content;
     }
     #about p {

@@ -19,8 +19,6 @@
 
 <body>
     <div id="landing">
-
-
       <nav id="outer-nav" class="slide-out">
         <a  class="toggle-button">
           <span class="bar"></span>
@@ -29,40 +27,46 @@
         </a>
         <div class="nav">
          <ul>
-          <li><a href="#landing" target="_self">Home</a></li>
-          <li><a href="#intro-container" target="_self">About</a></li>
-          <li><a href="#project-outerContainer" target="_self">Portfolio</a></li>
-          <li><a href="#course-container" target="_self">Courses</a></li>
+          <li><a href="#landing" target="_self"><i class="uil uil-home" style="color: white;"></i>Home</a></li>
+          <li><a href="#intro-container" target="_self"><i class="uil uil-user" style="color: white;"></i>About</a></li>
+          <li><a href="#project-outerContainer" target="_self"><i class="uil uil-bag" style="color: white;" ></i>Portfolio</a></li>
+
+          <li><a href="#course-container" target="_self"><i class="uil uil-presentation-edit"  style="color: white;"></i>Courses</a></li>
+
          </ul>
         </div>
       </nav>
 
-
-  
-
-     
-
-
-
-     <div id="name">
+      <div id="name">
         
         <h1 id="name"><span style="color: #5097ab;">Suhail</span> Tailor</h1>
         <div class="typer-container">
           <p><span class="typer"></span></p>
         </div>
         <div class="landing-contact">
-          <a href="Resume .pdf" alt="Resume" target="_blank"><i style="color: #5097ab;"class="uil uil-file-search-alt"></i></a>
-          
-          <a href="https://github.com/Sptailor" alt="Github" target="_blank"><i style="color: #5097ab;"   class="uil uil-github"></i></a>
-          
-          <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" alt="LinkedIn" target="_blank"><i  style="color: #5097ab;"  class="uil uil-linkedin"></i></a>
-          
-          <a href="mailto:stailor@ilstu.edu" target="_blank"><i  style="color: #5097ab;" class="uil uil-envelope-alt"></i></a>
+          <div class="link-container">
+          <a href="Resume .pdf" alt="Resume" target="_blank"><i id="icon" class="uil uil-file-search-alt"></i> </a>
+          <span class="hover-message">Resume</span>
+          </div>
+
+          <div class="link-container">
+          <a href="https://github.com/Sptailor" alt="Github" target="_blank"><i id="icon"  class="uil uil-github"></i></a>
+          <span class="hover-message">Github</span>
+          </div>
+
+          <div class="link-container">
+          <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" alt="LinkedIn" target="_blank"><i id="icon"  class="uil uil-linkedin"></i></a>
+          <div class="hover-message">linkedIn</div>
+          </div>
+          <div class="link-container">
+          <a href="mailto:stailor@ilstu.edu" target="_blank"><i  id="icon" class="uil uil-envelope-alt"></i></a>
+          <span class="hover-message">Email</span>
+          </div>
         </div>
 
         
       </div>
-     </div>
+    </div>
      <div class="split">
      <h2 style="text-align: center;" ><span class='split-inner'>About Me</span> </h2>
      </div>
@@ -70,7 +74,10 @@
         
 
           <div id="picture" >
-            <img src="images/Temporary.png" alt="profile picture" width="60%" >
+            <img src="images/profile.png" alt="profile picture" style="border-radius: 25%;
+            padding: 3%;
+            width: 56%;" >
+
 
 
           </div>
@@ -83,25 +90,7 @@
         
      </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div id="project-outerContainer">
+    <div id="project-outerContainer">
        <section id="Projects" >
 
         <h2 style="text-align: center; color: rgb(0, 0, 0); font-size:200%;"> <underline>
@@ -158,11 +147,11 @@
           <div id="project-x"> 
  
              <div class="project-display" >
-                  <a href="" target="_blank"><img src="images/Temp.png" alt="Portfolio" width="500vw"></a>
+                  <a href="" target="_blank"><img src="images/Portfolio.png" alt="Portfolio" width="500vw"></a>
              </div>
              <div class="project-info">
                <h3>Portfolio</h3>
-               <p>I designed and developed this website as a portfolio to display my experience with current and past projects including courses I have taken</p> 
+               <p>Designed and developed this website as a portfolio to display my experience with current and past projects including courses I have taken</p> 
                <div id="technology" >
                 <h4> JavaScript </h4>
                 <span> </span>
@@ -189,7 +178,7 @@
             </div>
             <div class="project-info">
               <h3>MorseDecoder</h3>
-              <p>I developed the backend of a Morse code decoder in Java, implementing a binary tree structure and a recursive algorithm. This backend efficiently translates Morse code signals into human-readable text. Users can interact with the decoder by providing Morse code sequences through user input, and the program utilizes the recursive algorithm to decode the signals character by character.</p> 
+              <p>Developed the backend of a Morse code decoder in Java, implementing a binary tree structure and a recursive algorithm. This backend efficiently translates Morse code signals into human-readable text. Users can interact with the decoder by providing Morse code sequences through user input, and the program utilizes the recursive algorithm to decode the signals character by character.</p> 
               <div id="technology" >
                 <span class="left-line" style="padding-left: 5px;"></span> 
                 <h4>Java</h4>
@@ -208,28 +197,21 @@
 
 
        </section>
-      </div>
-      <div class="split">
+    </div>
+    <div class="split">
+    <h2><span class="split-inner">Courses Taken</span> </h2>
+    </div>
 
-
-      <h2><span class="split-inner">Courses Taken</span> </h2>
-      </div>
-
-      <div id="course-container" class="first" >
+    <div id="course-container" class="first" >
         <div id="course-outer">
          <div id="course">
           <h3 style="text-align: center;"> <span style="border-bottom: 2px solid black; ">Java</span></h3>
-
           <ul>
            <li><p> Introduction to development of algorithms (Object Oriented Programming)</p></li>
           <li><p>Introduction to data structures(Object Oriented Programming)</p></li>
           </ul>
-          
-
-
          </div>
        </div>
-        
       <div id="course-outer">
         <div id="course">
           <h3 style="text-align: center;"> <span style="border-bottom: 2px solid black; ">C++</span></h3>
@@ -241,8 +223,6 @@
 
         </div>
        </div>
-
-       
       <div id="course-outer">
         <div id="course">
           <h3 style="text-align: center;"> <span style="border-bottom: 2px solid black; ">Web development</span></h3>
@@ -253,8 +233,8 @@
 
         </div>
       </div>
-      </div>
-      <div id="course-container" >
+    </div>
+    <div id="course-container" >
 
        <div id="course-outer">
          <div id="course" >
@@ -268,32 +248,36 @@
 
          </div>
        </div>
-
-
        <div id="course-outer">
         <div id="course">
           <h3 style="text-align: center;"> <span style="border-bottom: 2px solid black; ">Networking</span></h3>
           <ul>
             <li><p>Introduction to Networking,Parallel & Distributed Computing</p></li>
-
           </ul>  
-
         </div>
         </div>
-
-      
-
-        
-      </div>
+    </div>
 
       <div id="contact">
-        <h2>Contact</h2>
-        <p>Email: stailor@ilstu.edu</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" target="_blank">Your LinkedIn Profile</a></p>
+        <h2 class="split"><span class="split-inner">Get in touch</span></h2>
+        <p>Willing to broaden my horizon with your partnership</p>
+        <div id="contact-list">
+          <ul>
+           <li><a href="" ><i class="uil uil-map-marker" style="color: white;"></i>Chicago,IL</a></li>
+           <li><a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" alt="LinkedIn" target="_blank"><i id="icon"  class="uil uil-linkedin"></i>LinkedIn</a> </li>
+
+           <li><a href="tel:309-205-2647" ><i class="uil uil-mobile-android" style="color: white;" ></i>Mobile</a></li>
+ 
+           <li><a href="mailto:stailor@ilstu.edu" target="_blank"><i  id="icon" class="uil uil-envelope-alt"></i>stailor@ildtu.edu</a></li>
+ 
+          </ul>
+         </div>
+
       </div>
 
+
    <footer>
-        <p>&copy; 2024 Suhail Tailor - Portfolio</p>
+        <p>Designed & Developed by Suhail Tailor</p>
     </footer>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="Main.js"></script>

@@ -24,7 +24,9 @@ togglebtn.addEventListener('click',()=>{//toggle navbar
         navbar.classList.remove('slide-out')
         navbar.classList.add('slide-in')
     }
-    
+
+  // togglebtn.classList.toggle('slide-out');
+
     
 
  

@@ -34,6 +34,7 @@ background-image: url(images/preffered.jpeg);
     display: flex;
     justify-content: space-evenly;
     padding-top: 5%;
+    width: 100vw;
 
 
     
@@ -520,7 +521,10 @@ margin-left: 3%;
     margin-bottom: 10px;
     
    line-height: normal;
-   padding: 10%;
+   padding-left: 22px;
+   padding-right: 22px;
+   padding-top: 0;
+   padding-bottom: 65px;
 
 
 
@@ -602,15 +606,28 @@ margin-left: 3%;
             color: #fff;
             text-align: center;
             padding: 3em;
-            position: static;
+            position: relative;
             bottom: 0;
             width: 100%;
-            height: 2vh;
+            height: 8vh;
+ }
+
+
+ @media only screen and (max-width: 500px) {
+    body{
+        width: 91%;
+        margin-left: 0;
+    }
+    #course-container{
+        margin-left: 9%;
+    }
+    
  }
 
  
 
  @media only screen and (max-width: 1280px) {
+    
     
 
    
@@ -634,13 +651,18 @@ margin-left: 3%;
         padding: 1%;
         
 
+
     }
     #course{
-        width: 28vh;
+        width:38vh;
         height: fit-content;
     }
+    #course-container{
+        padding-left: 10px;
+        width:100%;
+    }
     #about p {
-        font-size: smaller; /* Adjust font size for small screens */
+        font-size: smaller; /* Adjust */
         background-color: #2a2a2a34;
         border-radius: 50px;
 
@@ -657,9 +679,7 @@ margin-left: 3%;
         font-size: small;
         
     }
-    #picture img {
-    
-    }
+   
 
     #about {
         padding-top: 20px; /* Adjust padding for small screens */
@@ -675,6 +695,10 @@ margin-left: 3%;
         text-align: center;
         padding: 10px;
         margin-top: 8%;
+        margin:5%
+    }
+    #project-outerContainer{
+        margin-left: 1%;
     }
     .project-display img{
      width: 80vw;
@@ -690,10 +714,16 @@ margin-left: 3%;
     h2 span {
         font-size: smaller; /* Adjust font size for small screens */
     }
+    #contact{
+        padding-bottom: 7%;
+    }
     #contact p{
-        width: 103vw;
-        padding-top: 11%;
+        width: 101vw;
+        padding-top: 8%;
 
+    }
+    #contact #contact-list{
+        
     }
     #contact #contact-list ul{
         display: flex;

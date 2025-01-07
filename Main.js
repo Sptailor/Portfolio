@@ -24,11 +24,50 @@ togglebtn.addEventListener('click', () => {//toggle navbar
         navbar.classList.remove('slide-out')
         navbar.classList.add('slide-in')
     }
-
-
-
-
-
-
-
 })
+
+// Select all elements with the "hidden" class
+const hiddenElements = document.querySelectorAll('.hidden');
+
+// Create an Intersection Observer
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Add the "visible" class when the element is in view
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing once visible
+        }
+    });
+});
+
+
+hiddenElements.forEach(element => {
+    observer.observe(element);
+});
+
+
+const jiggleElements = document.querySelectorAll('.jiggle-random');
+
+// Function to trigger the jiggle animation
+function triggerJiggle(element) {
+    element.classList.add('jiggle');
+    setTimeout(() => {
+        element.classList.remove('jiggle');
+    }, 500);
+}
+
+
+function startJiggleAnimation() {
+    jiggleElements.forEach(element => {
+        function jiggleWithRandomInterval() {
+            triggerJiggle(element);
+
+            const randomInterval = Math.random() * 1000 + 2000;
+            setTimeout(jiggleWithRandomInterval, randomInterval);
+        }
+        jiggleWithRandomInterval();
+    });
+}
+
+startJiggleAnimation();
+

@@ -406,6 +406,7 @@ body {
     /* width: 90%; */
     padding: 40px;
     padding-bottom: 20%;
+    padding-left: 0;
 
 
 
@@ -711,8 +712,7 @@ footer {
 
     #outer-nav {
         flex-direction: column;
-        /*
-        align-items: flex-start;*/
+        
     }
 
     .nav ul {
@@ -786,9 +786,7 @@ footer {
         /* margin: 5% */
     }
 
-    /* #project-outerContainer {
-        margin-left: 1%;
-    } */
+   
 
     .project-display img {
         width: 80vw;
@@ -798,15 +796,14 @@ footer {
 
     #project-x {
         flex-direction: column;
-        /* Stack items vertically for small screens */
+        
         align-items: center;
-        /* Center items horizontally */
-
+        
     }
 
     h2 span {
         font-size: smaller;
-        /* Adjust font size for small screens */
+        
     }
 
     #contact {
@@ -853,3 +850,35 @@ footer {
 
 
 }
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px); 
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+  }
+  
+ 
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @keyframes jiggle {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+  
+  .jiggle {
+    animation: jiggle 0.5s ease-in-out;
+  }
+  
+  

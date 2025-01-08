@@ -677,7 +677,9 @@ footer {
 @media only screen and (max-width: 500px) {
     body {
 
+        background-image: url(images/SmallerBg.png);
         margin-left: 0;
+
     }
 
 
@@ -728,7 +730,7 @@ footer {
     #about p {
         font-size: smaller;
 
-        background-color: #2a2a2a34;
+       
         border-radius: 50px;
 
     }

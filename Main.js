@@ -1,5 +1,7 @@
 
 const togglebtn = document.getElementsByClassName('toggle-button')[0]
+const closeNavListener=document.body
+
 
 const navlinks = document.getElementsByClassName('nav')[0]
 
@@ -14,7 +16,9 @@ var typingEffect = new Typed(".typer", {//typing effect
     backSpeed: 80,
     backDelay: 2000
 })
-togglebtn.addEventListener('click', () => {//toggle navbar
+
+function toggleOpenClose(){
+    event.stopPropagation();
     navlinks.classList.toggle('active')
     togglebtn.classList.toggle('rotate')
     if (navbar.classList.contains('slide-in')) {
@@ -23,8 +27,26 @@ togglebtn.addEventListener('click', () => {//toggle navbar
     } else if (navbar.classList.contains('slide-out')) {
         navbar.classList.remove('slide-out')
         navbar.classList.add('slide-in')
+    } 
+};
+
+
+togglebtn.addEventListener('click', toggleOpenClose);
+
+
+navlinks.addEventListener('click',toggleOpenClose);
+
+
+closeNavListener.addEventListener('click',()=>{
+
+    if (navbar.classList.contains('slide-in')) {
+        navbar.classList.remove('slide-in');
+        navbar.classList.add('slide-out');
+        navlinks.classList.remove('active');
+        togglebtn.classList.remove('rotate');
     }
 })
+
 
 // Select all elements with the "hidden" class
 const hiddenElements = document.querySelectorAll('.hidden');

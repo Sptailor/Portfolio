@@ -391,15 +391,10 @@ body {
 #intro-container {
 
     display: flex;
-    /* width: 90%; */
+
     padding: 40px;
     padding-bottom: 20%;
     padding-left: 0;
-
-
-
-
-
 }
 
 

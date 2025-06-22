@@ -2,7 +2,9 @@ html {
     width: 100vw;
 
 }
-
+a:-webkit-any-link{
+    color:black;
+}
 
 
 #landing {

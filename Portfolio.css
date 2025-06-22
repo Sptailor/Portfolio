@@ -443,22 +443,26 @@ section {
 
 
 }
+.project-display{
+     transform: scale(1);
+     transition: transform 0.25s ease-in-out;
+}
 
 .project-display:hover {
-    z-index: 0;
+   
     transform: scale(1.2);
-    transition: transform 2s ease-in-out;
-
-
+   
 }
 
-.project-display:not(:hover) {
+/* .project-display:not(:hover) {
     z-index: 0;
+    
+    transition: transform 0.25s ease-in-out;
 
-    animation: swingingAnimation 1.5s ease-in-out forwards;
-}
-
-@keyframes swingingAnimation {
+   
+} */
+ /* animation: swingingAnimation 1.5s ease-in-out forwards; */
+/* @keyframes swingingAnimation {
     0% {
         transform: scale(1.2);
     }
@@ -480,7 +484,7 @@ section {
 
     }
 
-}
+} */
 
 
 

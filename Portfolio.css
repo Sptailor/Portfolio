@@ -25,18 +25,12 @@ a:-webkit-any-link{
 
 body {
     display: block;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+    font-family: 'Poppins','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     margin: 0;
-
     box-sizing: border-box;
-    
-
     background-image: url(images/preffered.jpeg);
     background-attachment: fixed;
     background-size: cover;
-
-
-
     background-repeat: no-repeat;
     background-position: center;
 
@@ -46,11 +40,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     padding-top: 5%;
-
-
-
-
-
 }
 
 .split-inner {
@@ -351,13 +340,7 @@ body {
         background-color: #04040443;
         border-radius: 40% 45% 40% 45%;
         transform: scale(1.2);
-
-
     }
-
-
-
-
 }
 
 
@@ -455,44 +438,6 @@ section {
     transform: scale(1.2);
    
 }
-
-/* .project-display:not(:hover) {
-    z-index: 0;
-    
-    transition: transform 0.25s ease-in-out;
-
-   
-} */
- /* animation: swingingAnimation 1.5s ease-in-out forwards; */
-/* @keyframes swingingAnimation {
-    0% {
-        transform: scale(1.2);
-    }
-
-    25% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.12);
-    }
-
-    75% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: scale(1);
-
-    }
-
-} */
-
-
-
-
-
-
 
 
 h2 {

@@ -963,6 +963,10 @@ footer {
 .link-container{
     margin: 2px;
 }
+#contact-list ul{
+    font-size: 35px;
+}
+
 
 
 
@@ -1102,10 +1106,11 @@ footer {
     }
 
     #contact #contact-list ul li i {
-        display: none;
+        /* display: none; */
         justify-content: center;
+        font-size: 6vw;
 
-        height: 1vh;
+        /* height: 1vh; */
     }
 
     #contact #contactlist a:hover {

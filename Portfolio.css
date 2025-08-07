@@ -687,8 +687,8 @@ hr {
 }
 
 #course-outer {
-    padding: 40px 60px;
-    margin-top: 1%;
+    padding: 1% 3%;
+    margin-top: 2%;
 }
 
 #course {
@@ -957,6 +957,12 @@ footer {
         margin-left: 0;
 
     }
+    #name h1 {
+    margin: 0;
+}
+.link-container{
+    margin: 2px;
+}
 
 
 
@@ -994,13 +1000,13 @@ footer {
     }
 
     #course {
-        width: 85vw;
+        width: 70vw;
         max-width: 400px;
         height: auto;
         min-height: 250px;
         margin: 0 auto 20px auto;
     }
-
+  
 
 
     #about p {
@@ -1084,7 +1090,7 @@ footer {
         max-width: 350px;
         flex-wrap: wrap;
         gap: 15px;
-        font-size: 16px;
+        font-size: 21px;
         line-height: 1.5;
         margin: 0 auto;
     }

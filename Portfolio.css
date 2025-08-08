@@ -142,25 +142,21 @@ body {
 
 /* #00f9ff; */
 #outer-nav {
-
-
     display: inline-flex;
     justify-content: space-around;
-
     width: 100%;
     align-items: center;
-    background-color: #000000cc;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 249, 255, 0.2);
     color: white;
     margin: 0;
-
-
     position: fixed;
     top: 0.01rem;
     right: 0;
     font-size: 50%;
-    z-index: 1;
-
-
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .nav {
@@ -272,20 +268,43 @@ body {
 
 .nav li {
     list-style: none;
-    padding: 10%;
+    padding: 6% 8%;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .nav li:hover {
-    transform: scale(1.2);
-
+    background: linear-gradient(135deg, rgba(0, 249, 255, 0.1), rgba(0, 249, 255, 0.05));
+    border: 1px solid rgba(0, 249, 255, 0.3);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .nav li a {
     text-decoration: none;
     color: white;
     padding: 1rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
 
+.nav li a i {
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.nav li:hover a {
+    color: white;
+    text-shadow: 0 0 8px rgba(0, 249, 255, 0.6);
+}
+
+.nav li:hover a i {
+    color: var(--primary-color);
+    filter: brightness(1.2);
 }
 
 .toggle-button {
@@ -297,8 +316,9 @@ body {
     justify-content: space-between;
     width: 30px;
     height: 21px;
-    z-index: 10;
+    z-index: 1001;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .toggle-button::before {
@@ -343,10 +363,9 @@ body {
     height: 3px;
     width: 100%;
     background-color: white;
-    border-radius: 10px;
-
-
-
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
 }
 
 .toggle-button:active {
@@ -368,11 +387,19 @@ body {
 
 
 .rotate {
-
     animation: move 4s ease-in-out infinite;
+}
 
+.toggle-button.rotate .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
 
+.toggle-button.rotate .bar:nth-child(2) {
+    opacity: 0;
+}
 
+.toggle-button.rotate .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 #name {

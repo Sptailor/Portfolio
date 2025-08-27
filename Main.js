@@ -17,6 +17,30 @@ var typingEffect = new Typed(".typer", {//typing effect
     backDelay: 2000
 })
 
+
+// Click event to redirect to GitHub
+document.querySelectorAll('.logo-item').forEach(logo => {
+    logo.addEventListener('click', () => {
+        window.open('https://github.com/Sptailor', '_blank');
+    });
+});
+
+// Hide logos when scrolling away from landing page
+window.addEventListener('scroll', () => {
+    const landingSection = document.getElementById('landing');
+    const floatingLogos = document.querySelector('.floating-logos');
+    const landingRect = landingSection.getBoundingClientRect();
+    
+    // Hide logos when landing section is out of view
+    if (landingRect.bottom <= 0) {
+        floatingLogos.style.opacity = '0';
+        floatingLogos.style.pointerEvents = 'none';
+    } else {
+        floatingLogos.style.opacity = '1';
+        floatingLogos.style.pointerEvents = 'auto';
+    }
+});
+
 function toggleOpenClose(){
     event.stopPropagation();
     togglebtn.classList.toggle('rotate')

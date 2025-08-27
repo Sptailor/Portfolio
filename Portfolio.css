@@ -56,9 +56,10 @@ a:-webkit-any-link{
     left: 0;
     width: 100vw;
     height: 100vh;
-    pointer-events: none;
-    z-index: -1;
+    pointer-events: auto;
+    z-index: 1;
     overflow: hidden;
+    transition: opacity 0.5s ease;
 }
 
 .logo-item {
@@ -70,6 +71,8 @@ a:-webkit-any-link{
     user-select: none;
     top: 36%;
     left: 8%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .logo-item:nth-child(1) {

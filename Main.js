@@ -31,8 +31,17 @@ window.addEventListener('scroll', () => {
     const floatingLogos = document.querySelector('.floating-logos');
     const landingRect = landingSection.getBoundingClientRect();
     
-    // Hide logos when only 30% of landing section is still visible
-    if (landingRect.bottom <= window.innerHeight * 0.3) {
+    // Different thresholds based on screen size
+    let threshold = 0.3; // Default: 30% for larger screens
+    if (window.innerWidth <= 768) {
+        threshold = 0.5; // 50% for tablets and smaller
+    }
+    if (window.innerWidth <= 480) {
+        threshold = 0.7; // 70% for mobile phones
+    }
+    
+    // Hide logos based on screen size threshold
+    if (landingRect.bottom <= window.innerHeight * threshold) {
         floatingLogos.style.opacity = '0';
         floatingLogos.style.pointerEvents = 'none';
     } else {

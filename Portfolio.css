@@ -118,6 +118,44 @@ a:-webkit-any-link{
     font-size: 2.6rem;
 }
 
+/* Responsive positioning for smaller screens */
+@media (max-width: 768px) {
+    .logo-item {
+        position: absolute;
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.4);
+        animation: floatHover 6s ease-in-out infinite;
+        opacity: 1;
+        user-select: none;
+        top: 36%;
+        left: 5%;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        pointer-events: auto;
+    }
+    
+    .logo-item:nth-child(1) {
+        left: 15%;
+        top: 14%;
+        animation-delay: 0s;
+        font-size: 3rem;
+    }
+    
+    .logo-item:nth-child(3) {
+        left: 82%;
+        top: 73%;
+        animation-delay: -2s;
+        font-size: 2rem;
+    }
+    
+    .logo-item:nth-child(6) {
+        left: 2%;
+        top: 49%;
+        animation-delay: -5s;
+        font-size: 2.0rem;
+    }
+}
+
 .logo-item:nth-child(7) {
     left: 53%;
     top: 71%;

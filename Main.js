@@ -25,7 +25,7 @@ document.querySelectorAll('.logo-item').forEach(logo => {
     });
 });
 
-// Hide logos when scrolling away from landing page
+// Hide logos when scrolling away from landing page and manage z-index for smaller screens
 window.addEventListener('scroll', () => {
     const landingSection = document.getElementById('landing');
     const floatingLogos = document.querySelector('.floating-logos');
@@ -35,9 +35,13 @@ window.addEventListener('scroll', () => {
     let threshold = 0.3; // Default: 30% for larger screens
     if (window.innerWidth <= 768) {
         threshold = 0.5; // 50% for tablets and smaller
+        floatingLogos.style.zIndex = '-1'; // Behind content on smaller screens
+    } else {
+        floatingLogos.style.zIndex = '1'; // Above content on larger screens
     }
     if (window.innerWidth <= 480) {
         threshold = 0.7; // 70% for mobile phones
+        floatingLogos.style.zIndex = '-1'; // Behind content on mobile
     }
     
     // Hide logos based on screen size threshold
@@ -49,6 +53,22 @@ window.addEventListener('scroll', () => {
         floatingLogos.style.pointerEvents = 'auto';
     }
 });
+
+// Set initial z-index based on screen size
+function setInitialZIndex() {
+    const floatingLogos = document.querySelector('.floating-logos');
+    if (window.innerWidth <= 768) {
+        floatingLogos.style.zIndex = '-1';
+    } else {
+        floatingLogos.style.zIndex = '1';
+    }
+}
+
+// Set initial z-index on load
+document.addEventListener('DOMContentLoaded', setInitialZIndex);
+
+// Update z-index on window resize
+window.addEventListener('resize', setInitialZIndex);
 
 function toggleOpenClose(){
     event.stopPropagation();

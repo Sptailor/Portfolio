@@ -31,8 +31,8 @@ window.addEventListener('scroll', () => {
     const floatingLogos = document.querySelector('.floating-logos');
     const landingRect = landingSection.getBoundingClientRect();
     
-    // Hide logos when landing section is out of view
-    if (landingRect.bottom <= 0) {
+    // Hide logos when only 30% of landing section is still visible
+    if (landingRect.bottom <= window.innerHeight * 0.3) {
         floatingLogos.style.opacity = '0';
         floatingLogos.style.pointerEvents = 'none';
     } else {

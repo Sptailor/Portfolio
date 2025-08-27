@@ -49,6 +49,137 @@ a:-webkit-any-link{
     color:black;
 }
 
+/* Floating Logos Background */
+.floating-logos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.logo-item {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.4);
+    animation: floatHover 6s ease-in-out infinite;
+    opacity: 1;
+    user-select: none;
+    top: 36%;
+    left: 8%;
+}
+
+.logo-item:nth-child(1) {
+    left: 15%;
+    top: 20%;
+    animation-delay: 0s;
+    font-size: 3rem;
+}
+
+.logo-item:nth-child(2) {
+    left: 75%;
+    top: 15%;
+    animation-delay: -1s;
+    font-size: 2.5rem;
+}
+
+.logo-item:nth-child(3) {
+    left: 85%;
+    top: 60%;
+    animation-delay: -2s;
+    font-size: 2rem;
+}
+
+.logo-item:nth-child(4) {
+    left: 10%;
+    top: 70%;
+    animation-delay: -3s;
+    font-size: 2.8rem;
+}
+
+.logo-item:nth-child(5) {
+    left: 80%;
+    top: 35%;
+    animation-delay: -4s;
+    font-size: 2.2rem;
+}
+
+.logo-item:nth-child(6) {
+    left: 20%;
+    top: 45%;
+    animation-delay: -5s;
+    font-size: 2.6rem;
+}
+
+.logo-item:nth-child(7) {
+    left: 53%;
+    top: 71%;
+    animation-delay: -2.5s;
+    font-size: 2.4rem;
+}
+
+.logo-item:nth-child(8) {
+    left: 45%;
+    top: 19%;
+    animation-delay: -1.5s;
+    font-size: 3.2rem;
+}
+
+@keyframes floatHover {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Add subtle glow effect on hover (even though pointer-events is none) */
+.logo-item[data-tech="html"] {
+    color: rgba(227, 79, 38, 0.7);
+}
+
+.logo-item[data-tech="css"] {
+    color: rgba(21, 114, 182, 0.7);
+}
+
+.logo-item[data-tech="js"] {
+    color: rgba(247, 223, 30, 0.7);
+}
+
+.logo-item[data-tech="java"] {
+    color: rgba(237, 117, 39, 0.7);
+}
+
+.logo-item[data-tech="cpp"] {
+    color: rgba(0, 89, 156, 0.7);
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.logo-item[data-tech="sql"] {
+    color: rgba(0, 123, 255, 0.7);
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo-item[data-tech="git"] {
+    color: rgba(240, 80, 50, 0.7);
+}
+
+.logo-item[data-tech="react"] {
+    color: rgba(97, 218, 251, 0.7);
+}
+
+.logo-item[data-tech="claude"] {
+    color: rgba(255, 165, 0, 0.7);
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
 a {
     text-decoration: none;
     transition: color 0.3s ease;

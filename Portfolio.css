@@ -183,6 +183,33 @@ a:-webkit-any-link{
     font-family: 'Arial', sans-serif;
 }
 
+/* Project title container and GitHub hint styling */
+.project-title-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.github-icon {
+    margin-left: 10px;
+    color: var(--primary-color) !important;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    animation: gentle-bounce 2s ease-in-out infinite;
+    transform: translateY(3px);
+    margin-top: 10px;
+}
+
+.github-icon:hover {
+    color: white !important;
+    transform: scale(1.2);
+}
+
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-2px); }
+}
+
 a {
     text-decoration: none;
     transition: color 0.3s ease;

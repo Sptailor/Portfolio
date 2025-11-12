@@ -35,36 +35,6 @@ This portfolio highlights my technical skills, professional projects, and academ
 6. **MazeGenerator** - C++ maze generation using disjoint sets
 7. **QueueSimulation** - Checkout system efficiency simulator
 
-## Getting Started
-
-### Prerequisites
-
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-- Optional: Local web server for development
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Sptailor/Portfolio.git
-```
-
-2. Navigate to the project directory:
-```bash
-cd Portfolio
-```
-
-3. Open `index.html` in your browser or use a local server:
-```bash
-# Using Python 3
-python3 -m http.server 8000
-
-# Using Node.js (http-server)
-npx http-server
-```
-
-4. Visit `http://localhost:8000` in your browser
-
 ## File Structure
 
 ```

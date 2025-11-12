@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website showcasing my journey as a software engineer. Built with vanilla JavaScript, HTML5, and CSS3, this site features smooth animations, interactive elements, and a clean, professional design.
 
+**[Live Demo](https://sptailor.github.io/Portfolio/)**
+
 ## Overview
 
 This portfolio highlights my technical skills, professional projects, and academic coursework. It demonstrates my ability to create engaging, responsive web applications with a focus on user experience, performance, and modern design principles.

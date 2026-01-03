@@ -1377,8 +1377,10 @@ footer {
 
 @media only screen and (max-width: 1280px) {
 
-
-
+    .demo-overlay-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
 
     #outer-nav {
         flex-direction: column;

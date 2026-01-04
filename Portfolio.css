@@ -942,34 +942,6 @@ section {
     box-shadow: 0 15px 40px var(--primary-alpha-30);
 }
 
-/* Demo badge for projects with live demos */
-.demo-overlay {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 6px 12px;
-    background: var(--primary-color);
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    z-index: 2;
-    pointer-events: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.project-display:hover .demo-overlay {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--primary-alpha-40);
-}
-
-.demo-overlay-text {
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-
 h2 {
     color: #e8a0a0;
 
@@ -1361,17 +1333,6 @@ footer {
 
 
 @media only screen and (max-width: 1280px) {
-
-    .demo-overlay {
-        top: 8px;
-        right: 8px;
-        padding: 4px 10px;
-    }
-
-    .demo-overlay-text {
-        font-size: 0.65rem;
-        letter-spacing: 0.8px;
-    }
 
     #outer-nav {
         flex-direction: column;

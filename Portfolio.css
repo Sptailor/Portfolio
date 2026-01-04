@@ -916,6 +916,14 @@ section {
      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
      border-radius: 12px;
      position: relative;
+     width: 100%;
+     max-width: 500px;
+}
+
+.project-display img {
+     width: 100%;
+     height: auto;
+     display: block;
 }
 
 .project-display::before {

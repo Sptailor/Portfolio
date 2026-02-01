@@ -1332,10 +1332,20 @@ footer {
     align-items: center;
 }
 
+    #project-x {
+        gap: 10px;
+        padding-bottom: 15px;
+    }
 
+    .project-display {
+        flex: 0 0 auto;
+        max-width: 95%;
+    }
 
-
-
+    .project-info {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
 }
 
 

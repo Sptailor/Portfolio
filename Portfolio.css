@@ -10,7 +10,8 @@
 }
 
 html {
-    width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
@@ -286,8 +287,7 @@ body {
     background-repeat: no-repeat;
     background-position: center; */
     background: black;
-
-
+    overflow-x: hidden;
 }
 
 .split {

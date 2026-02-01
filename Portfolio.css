@@ -1338,8 +1338,11 @@ footer {
     }
 
     .project-display {
-        flex: 0 0 auto;
+        flex: none;
         max-width: 95%;
+        min-width: auto;
+        width: auto;
+        height: auto;
     }
 
     .project-info {
@@ -1429,9 +1432,11 @@ footer {
 
 
     .project-display {
-        flex: 0 0 auto;
+        flex: none;
         max-width: 90%;
         min-width: auto;
+        width: auto;
+        height: auto;
     }
 
     .project-display img {

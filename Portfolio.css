@@ -1418,11 +1418,15 @@ footer {
 
 
 
+    .project-display {
+        flex: 0 0 auto;
+        max-width: 90%;
+        min-width: auto;
+    }
+
     .project-display img {
         width: 80vw;
     }
-
-
 
     #project-x {
         flex-direction: column;

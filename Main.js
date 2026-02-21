@@ -1,3 +1,11 @@
+// Loading screen
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    // Small delay to ensure smooth transition
+    setTimeout(() => {
+        loader.classList.add('hidden');
+    }, 800);
+});
 
 const togglebtn = document.getElementsByClassName('toggle-button')[0]
 const closeNavListener=document.body

@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     // Small delay to ensure smooth transition
     setTimeout(() => {
         loader.classList.add('hidden');
-    }, 800);
+    }, 400);
 });
 
 const togglebtn = document.getElementsByClassName('toggle-button')[0]

@@ -1,5 +1,5 @@
 // Loading screen
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     // Small delay to ensure smooth transition
     setTimeout(() => {

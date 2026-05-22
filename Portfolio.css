@@ -1423,9 +1423,7 @@ hr {
 }
 
 #contact-list li a:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px var(--primary-alpha-40);
-    border-color: var(--primary-color);
+    transform: translateY(-5px);
 }
 
 #contact-list li a i {

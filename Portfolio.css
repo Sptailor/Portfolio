@@ -1372,14 +1372,13 @@ hr {
 
 #contact-list ul {
     display: flex;
-    padding: 3%;
+    padding: 2%;
     justify-content: center;
-    align-items: center;
-    font-size: 38px;
-    width: 80vw;
-    line-height: 3vh;
+    align-items: stretch;
+    width: 90vw;
+    max-width: 900px;
     flex-wrap: nowrap;
-    gap: 20px;
+    gap: 30px;
     margin: 0 auto;
 }
 
@@ -1387,21 +1386,28 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 15px;
     flex: 1;
+    min-width: 150px;
+    max-width: 200px;
 }
 
 #contact-list li a {
     color: white;
     text-decoration: none;
-    font-size: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 15px 20px;
-    border-radius: 12px;
+    justify-content: center;
+    gap: 15px;
+    padding: 30px 25px;
+    border-radius: 16px;
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
 }
 
 #contact-list li a::before {
@@ -1421,16 +1427,27 @@ hr {
 }
 
 #contact-list li a:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px var(--primary-alpha-40);
-    color: white;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px var(--primary-alpha-40);
+    border-color: var(--primary-color);
 }
 
 #contact-list li a i {
-    color: white;
-    text-decoration: none;
-    font-size: 3vw;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
 
+#contact-list li a:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+#contact-list li a span {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 
@@ -1633,34 +1650,30 @@ footer {
 
 
     #contact-list ul {
-        flex-direction: column;
-        width: 95%;
-        max-width: 350px;
         flex-wrap: wrap;
-        gap: 15px;
-        font-size: 4vw;
-        line-height: 1.5;
+        gap: 20px;
+        width: 95%;
+        max-width: 400px;
         margin: 0 auto;
     }
 
-    #contact #contact-list ul li {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 10px;
+    #contact-list li {
+        flex: 1 1 calc(50% - 20px);
+        min-width: 140px;
+        max-width: none;
     }
 
-    #contact #contact-list ul li i {
-        /* display: none; */
-        justify-content: center;
-        font-size: 6vw;
-
-        /* height: 1vh; */
+    #contact-list li a {
+        padding: 25px 20px;
+        gap: 12px;
     }
 
-    #contact #contactlist a:hover {
-        transform: scale(1.5);
-        cursor: pointer;
+    #contact-list li a i {
+        font-size: 2rem;
+    }
 
+    #contact-list li a span {
+        font-size: 0.85rem;
     }
 
 

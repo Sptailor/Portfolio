@@ -1387,8 +1387,6 @@ hr {
     justify-content: center;
     align-items: center;
     flex: 1;
-    min-width: 150px;
-    max-width: 200px;
 }
 
 #contact-list li a {

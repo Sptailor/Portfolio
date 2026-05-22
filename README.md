@@ -79,7 +79,7 @@ Interactive technology logos that respond to scroll position and redirect to Git
 
 ## Contact
 
-- **Email**: stailor@ilstu.edu
+- **Email**: suhailtailor96@gmail.com
 - **LinkedIn**: [Suhail Tailor](https://www.linkedin.com/in/suhail-tailor-10016322b/)
 - **GitHub**: [Sptailor](https://github.com/Sptailor)
 - **Location**: Chicago, IL

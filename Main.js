@@ -221,6 +221,23 @@
     }
   }
 
+  /* Open by default only where the drawer clears the card's text. Below that
+     it starts tucked away behind the handle, so nothing is covered. Measured
+     rather than hard-coded to a width, so it keeps holding if the padding or
+     the drawer size changes. */
+  (function () {
+    var card = root.querySelector('.card');
+    if (!drawer || !card) { return; }
+    var textLeft = card.getBoundingClientRect().left +
+      parseFloat(getComputedStyle(card).paddingLeft);
+    if (textLeft >= drawer.getBoundingClientRect().right + 8) { return; }
+    state.nav = false;
+    drawer.style.transition = 'none';
+    syncNav();
+    void drawer.offsetWidth;
+    drawer.style.transition = '';
+  })();
+
   on('closeNav', function () { state.nav = false; syncNav(); });
   on('openNav', function () { state.nav = true; syncNav(); });
 

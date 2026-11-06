@@ -49,3 +49,37 @@ a:hover { color: var(--accent); }
 .mono { font-family: 'Space Mono', monospace; }
 .lab { font-size: var(--fsMicro); color: var(--dim); }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 0 26px; position: relative; z-index: 3; }
+
+.thin {
+  background: var(--thinBg);
+  backdrop-filter: blur(34px) saturate(185%) brightness(var(--gBright));
+  -webkit-backdrop-filter: blur(34px) saturate(185%) brightness(var(--gBright));
+  border: 1px solid var(--gBorder);
+  box-shadow: inset 0 1px 0 var(--gTop), inset 0 -1px 0 var(--gBot), 0 2px 6px var(--gS1), 0 12px 32px var(--gS2);
+}
+.thick {
+  background: var(--thickBg);
+  backdrop-filter: blur(7px) saturate(125%) brightness(var(--gBright));
+  -webkit-backdrop-filter: blur(7px) saturate(125%) brightness(var(--gBright));
+  border: 1px solid var(--gBorder);
+  box-shadow: inset 0 1px 0 var(--gTop), inset 0 -1px 0 var(--gBot),
+              0 1px 2px var(--gS1), 0 10px 28px var(--gS2), 0 32px 72px var(--gS3);
+}
+.card { position: relative; overflow: hidden; border-radius: 22px; padding: 40px 44px; margin-bottom: 22px; }
+.card::after {
+  content: ''; position: absolute; width: 46%; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, var(--shine) 0%, transparent 62%);
+  filter: blur(34px); pointer-events: none; z-index: 0;
+  animation: shine 9s ease-in-out infinite;
+}
+.card > * { position: relative; z-index: 1; }
+@keyframes shine {
+  0% { top: 100%; left: -100%; }
+  50%, 100% { top: 0%; left: 70%; }
+}
+main > section:nth-of-type(2)::after { animation-delay: -1.5s; }
+main > section:nth-of-type(3)::after { animation-delay: -3s; }
+main > section:nth-of-type(4)::after { animation-delay: -4.5s; }
+main > section:nth-of-type(5)::after { animation-delay: -6s; }
+main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
+

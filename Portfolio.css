@@ -178,3 +178,9 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .swaplab .lA { animation: swapA 10s ease-in-out infinite; }
 .swaplab .lB { animation: swapB 10s ease-in-out infinite; }
 
+
+
+.dimline { position: relative; height: 1px; background: var(--rule); }
+.dimline::after { content: ''; position: absolute; left: 0; top: 0; width: 64px; height: 1px; background: var(--accent); animation: trace 9s linear infinite; }
+@keyframes trace { from { transform: translateX(0); } to { transform: translateX(1000%); } }
+

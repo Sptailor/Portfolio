@@ -217,6 +217,7 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .card { padding: 26px 20px; border-radius: 18px; }
   .drawer { width: 84px; left: 10px; }
   .mast { grid-template-columns: 1fr; gap: 28px; }
+  .abt { grid-template-columns: 1fr; gap: 8px; }
   .acchead { grid-template-columns: 30px minmax(0, 1fr) 22px; }
   .accgrid { grid-template-columns: 1fr; gap: 20px; }
   .spec, .meta { grid-template-columns: 1fr; gap: 4px; }

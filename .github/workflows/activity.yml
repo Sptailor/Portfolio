@@ -1,0 +1,44 @@
+name: Refresh activity data
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # The default token can come back empty for contributionsCollection.
+      # If that happens, add a personal access token with read:user as the
+      # ACTIVITY_TOKEN secret and this picks it up.
+      - name: Fetch contribution data
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_LOGIN: ${{ github.repository_owner }}
+        run: node scripts/activity.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/activity.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/activity.json
+          git commit -m "Refresh activity data"
+          git push

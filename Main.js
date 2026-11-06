@@ -347,4 +347,35 @@
 
   on('toggleTheme', function () { state.dark = !state.dark; syncTheme(); });
   syncTheme();
+
+  /* ---------------------------------------------------------- activity --- */
+
+  /* The graph in the markup is a snapshot taken when the page was committed;
+     a scheduled workflow refreshes data/activity.json, which this picks up.
+     If the fetch fails the snapshot stands, so the section is never empty. */
+  var heat = root.querySelector('.heat');
+  if (heat) {
+    fetch('data/activity.json', { cache: 'no-cache' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.levels || !d.levels.length) { return; }
+        var cells = heat.querySelectorAll('.hcell');
+        if (cells.length !== d.levels.length) {
+          var html = '';
+          for (var n = 0; n < d.levels.length; n++) { html += '<span class="hcell"></span>'; }
+          heat.innerHTML = html;
+          cells = heat.querySelectorAll('.hcell');
+        }
+        for (var i = 0; i < cells.length; i++) {
+          cells[i].setAttribute('data-lvl', d.levels[i]);
+        }
+        var stats = { commits: d.commits, repos: d.repos, streak: d.streak };
+        for (var key in stats) {
+          var el = root.querySelector('[data-stat="' + key + '"]');
+          if (el && stats[key] != null) { el.textContent = stats[key]; }
+        }
+        recolour(state.dark);
+      })
+      .catch(function () { /* snapshot in the markup stands */ });
+  }
 })();

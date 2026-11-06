@@ -291,4 +291,60 @@
     if (label) { label.style.transform = 'translate(0.0px, 0.0px)'; }
   }, true);
 
+  /* ------------------------------------------------------------- theme --- */
+
+  var SUN =
+    '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">' +
+    '<circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.3"></circle>' +
+    '<path d="M8 .9v2M8 13.1v2M.9 8h2M13.1 8h2M3 3l1.4 1.4M11.6 11.6 13 13M13 3l-1.4 1.4M4.4 11.6 3 13" ' +
+    'stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path></svg>';
+
+  var MOON =
+    '<svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">' +
+    '<path d="M13 9.6A5.4 5.4 0 0 1 6.4 3a5.5 5.5 0 1 0 6.6 6.6Z" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"></path></svg>';
+
+  /* The board recomputed every themed colour on re-render and wrote it into an
+     inline style. Static markup carries a data- hook instead, repainted here. */
+  function recolour(dark) {
+    var swatch = {
+      accent: dark ? '#4A9EFF' : '#2E5BBA',
+      prod: dark ? '#7FC9A0' : '#19603F',
+      prev: dark ? '#E0B463' : '#8A5B0F',
+      arch: dark ? '#9AA2A0' : '#585F5D',
+      mark2: dark ? '#86A4C4' : '#3F6B8F'
+    };
+    var tinted = root.querySelectorAll('[data-tint]');
+    for (var i = 0; i < tinted.length; i++) {
+      var el = tinted[i];
+      var c = swatch[el.getAttribute('data-tint')];
+      if (!c) { continue; }
+      if (el.hasAttribute('data-tint-bg')) { el.style.background = c; }
+      else { el.style.color = c; }
+    }
+
+    var shades = dark
+      ? ['#202426', '#1E4160', '#2E6FA8', '#4A9EFF', '#8CC3FF']
+      : ['#DEE2E1', '#B9CCE8', '#7FA3D8', '#4472C4', '#2E5BBA'];
+    var cells = root.querySelectorAll('.hcell[data-lvl]');
+    for (var j = 0; j < cells.length; j++) {
+      cells[j].style.background = shades[+cells[j].getAttribute('data-lvl')];
+    }
+  }
+
+  function syncTheme() {
+    var dark = state.dark;
+    root.classList.toggle('dark', dark);
+    document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+    var btn = root.querySelector('[data-act="toggleTheme"]');
+    if (btn) {
+      btn.innerHTML = dark ? SUN : MOON;
+      btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      btn.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    }
+    recolour(dark);
+  }
+
+  on('toggleTheme', function () { state.dark = !state.dark; syncTheme(); });
+  syncTheme();
 })();

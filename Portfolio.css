@@ -218,7 +218,15 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .drawer { width: 84px; left: 10px; }
   .mast { grid-template-columns: 1fr; gap: 28px; }
   .abt { grid-template-columns: 1fr; gap: 8px; }
-  .acchead { grid-template-columns: 30px minmax(0, 1fr) 22px; }
+  /* the row header has five children: keep the title and the expand control on
+     the first line and drop the status and year onto a second, so the status
+     is no longer squeezed into a 22px column and clipped */
+  .acchead { grid-template-columns: 30px minmax(0, 1fr) auto; row-gap: 9px; }
+  .acchead > *:nth-child(1) { grid-row: 1; grid-column: 1; }
+  .acchead > *:nth-child(2) { grid-row: 1; grid-column: 2; }
+  .acchead > *:nth-child(5) { grid-row: 1; grid-column: 3; }
+  .acchead > *:nth-child(3) { grid-row: 2; grid-column: 2; }
+  .acchead > *:nth-child(4) { grid-row: 2; grid-column: 3; justify-self: end; }
   .accgrid { grid-template-columns: 1fr; gap: 20px; }
   .spec, .meta { grid-template-columns: 1fr; gap: 4px; }
   .actstats { grid-template-columns: 1fr; gap: 14px; }

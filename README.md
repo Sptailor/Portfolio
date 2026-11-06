@@ -1,99 +1,58 @@
-# Portfolio Website
+# Portfolio
 
-A modern, responsive portfolio website showcasing my journey as a software engineer. Built with vanilla JavaScript, HTML5, and CSS3, this site features smooth animations, interactive elements, and a clean, professional design.
+Personal site for Suhail Tailor — software engineering master's student at San José State, with four projects running in production and a fifth in developer preview.
 
-**[Live Demo](https://sptailor.github.io/Portfolio/)**
+**[portfolio-sptailor.vercel.app](https://portfolio-sptailor.vercel.app/)**
 
-## Overview
+## Stack
 
-This portfolio highlights my technical skills, professional projects, and academic coursework. It demonstrates my ability to create engaging, responsive web applications with a focus on user experience, performance, and modern design principles.
+Vanilla HTML, CSS and JavaScript. No framework, no build step — the files that are committed are the files that are served.
 
-## Features
+- **Background** — a kinetic grid drawn on a `<canvas>`: grid points warp toward the pointer within a 260px radius, edges stay pinned, and clicks send a ripple outward at 400px/sec.
+- **Surfaces** — two tiers of glass (`.thin`, `.thick`) built on `backdrop-filter`, so the grid stays legible through the cards.
+- **Theme** — dark by default, with a light theme on the drawer toggle. Colours live in custom properties on `.rootx`; the few values that have to be inline carry a `data-tint` hook that `Main.js` repaints.
+- **Navigation** — a collapsible drawer that overlaps the content and closes on an outside click.
+- **Work** — an accordion; each row opens to the problem, what I did, the stack and a link to the live site or the source.
 
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices
-- **Interactive UI**: Smooth scroll animations, dynamic typing effects, and floating tech logos
-- **Project Showcase**: Detailed portfolio section featuring real-world projects with live demos
-- **Modern Navigation**: Smooth scrolling navigation with animated hamburger menu
-- **Performance Optimized**: Lightweight vanilla JavaScript implementation with efficient animations
-- **Analytics Integration**: Built-in visitor tracking and analytics
-- **Professional Contact Section**: Easy-to-access contact information and social links
+## Layout
 
-## Technologies Used
-
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Libraries**:
-  - Typed.js for dynamic typing effects
-  - Unicons for icon design
-- **Tools**: Git for version control
-- **Analytics**: Counter.dev, Google Analytics
-
-## Projects Featured
-
-1. **Realtor Website** - WordPress-based real estate platform
-2. **LuxJewels** - Full-stack e-commerce platform (Next.js, TypeScript, PostgreSQL, Stripe)
-3. **Portfolio** - This responsive portfolio website
-4. **Parallel Water Trap Algorithm** - Parallelized C solution using OpenMP and MPI
-5. **MorseDecoder** - Java-based Morse code decoder with binary tree structure
-6. **MazeGenerator** - C++ maze generation using disjoint sets
-7. **QueueSimulation** - Checkout system efficiency simulator
-
-## File Structure
-
-```
-Portfolio/
-├── index.html          # Main HTML file
-├── Portfolio.css       # Styles and animations
-├── Main.js            # Interactive functionality
-├── Resume.pdf         # Resume document
-├── images/            # Project screenshots and assets
-└── README.md          # Project documentation
+```text
+index.html                     markup
+Portfolio.css                  all styles
+Main.js                        canvas, drawer, accordion, theme, magnetic labels
+Resume.pdf
+assets/                        images used by the site, favicon, OG image
+data/activity.json             GitHub contribution snapshot
+scripts/activity.mjs           regenerates the snapshot
+images/                        older assets, not referenced by the site
+.github/workflows/activity.yml daily refresh
 ```
 
-## Key Features Implementation
+## Activity data
 
-### Dynamic Typing Effect
-Uses Typed.js to showcase different roles and skills with a typewriter animation.
+The contribution graph is real. `scripts/activity.mjs` queries the GitHub GraphQL API and writes `data/activity.json`; the page ships with a committed snapshot and fetches the JSON at runtime, so the section still renders if the request fails.
 
-### Intersection Observer API
-Implements smooth fade-in animations as sections come into viewport, enhancing user engagement.
+```sh
+GITHUB_TOKEN=$(gh auth token) node scripts/activity.mjs
+```
 
-### Responsive Navigation
-Features a mobile-friendly hamburger menu with smooth slide animations and backdrop blur effects.
+A scheduled workflow re-runs it daily. If the data stops updating, the Actions token has lost access to `contributionsCollection` — add a personal access token with `read:user` as the `ACTIVITY_TOKEN` secret.
 
-### Floating Tech Logos
-Interactive technology logos that respond to scroll position and redirect to GitHub profile.
+## Running locally
 
-## Browser Support
+```sh
+python3 -m http.server
+```
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+Then open <http://localhost:8000>. A server is needed rather than opening the file directly, because the activity fetch and the webfonts are blocked under `file://`.
 
-## Performance
+## Browser support
 
-- Lightweight vanilla JavaScript (no heavy frameworks)
-- Optimized images and assets
-- Lazy-loading animations
-- Minimal external dependencies
+Chrome, Firefox, Safari 14+ and Edge. The design depends on `backdrop-filter`; images are WebP, which every browser meeting that bar also supports.
 
 ## Contact
 
-- **Email**: suhailtailor96@gmail.com
-- **LinkedIn**: [Suhail Tailor](https://www.linkedin.com/in/suhail-tailor-10016322b/)
-- **GitHub**: [Sptailor](https://github.com/Sptailor)
-- **Location**: Chicago, IL
-
-## License
-
-This project is open source and available for educational purposes.
-
-## Acknowledgments
-
-- Icons by [Unicons](https://iconscout.com/unicons)
-- Typing effect by [Typed.js](https://github.com/mattboldt/typed.js/)
-- Analytics by Counter.dev and Google Analytics
-
----
-
-Designed & Developed by Suhail Tailor
+- **Email** — suhail.tailor@sjsu.edu
+- **LinkedIn** — [Suhail Tailor](https://www.linkedin.com/in/suhail-tailor-10016322b/)
+- **GitHub** — [Sptailor](https://github.com/Sptailor)
+- **Location** — San José, California

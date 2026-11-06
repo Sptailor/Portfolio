@@ -206,3 +206,18 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .dimline::after { content: ''; position: absolute; left: 0; top: 0; width: 64px; height: 1px; background: var(--accent); animation: trace 9s linear infinite; }
 @keyframes trace { from { transform: translateX(0); } to { transform: translateX(1000%); } }
 
+}
+@media (max-width: 900px) {
+  .wrap { padding: 0 14px; }
+  .card { padding: 26px 20px; border-radius: 18px; }
+  .drawer { width: 84px; left: 10px; }
+  .mast { grid-template-columns: 1fr; gap: 28px; }
+  .acchead { grid-template-columns: 30px minmax(0, 1fr) 22px; }
+  .accgrid { grid-template-columns: 1fr; gap: 20px; }
+  .spec, .meta { grid-template-columns: 1fr; gap: 4px; }
+  .actstats { grid-template-columns: 1fr; gap: 14px; }
+  .months { display: none; }
+  .nm { font-size: 42px !important; }
+  .lead { font-size: 22px !important; }
+  .big { font-size: 24px !important; }
+}

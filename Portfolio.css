@@ -127,3 +127,8 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .btnB:hover { border-color: var(--accent); color: var(--accent); background: var(--accentSoft); transform: translateY(-2px); }
 .btnB:active { transform: translateY(0) scale(0.975); }
 
+.shead { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--rule2); padding-bottom: 12px; }
+
+
+.stat { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+.statbig { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }

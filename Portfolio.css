@@ -85,3 +85,22 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 
 #kgcanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
+/* ---------- compact floating drawer ---------- */
+.closer { position: fixed; inset: 0; z-index: 48; appearance: none; background: transparent; border: 0; padding: 0; cursor: default; }
+.drawer { position: fixed; left: 18px; top: 50%; width: 94px; z-index: 50; border-radius: 24px; padding: 16px 0 14px; display: flex; flex-direction: column; align-items: center; gap: 16px; transition: transform 480ms cubic-bezier(0.32,0.72,0,1), opacity 320ms ease; }
+.mark { width: 34px; height: 34px; border-radius: 11px; border: 1px solid var(--rule2); display: flex; align-items: center; justify-content: center; font-family: 'Space Mono', monospace; font-size: var(--fsSmall); font-weight: 700; text-decoration: none; color: var(--ink); }
+.mark:hover { border-color: var(--accent); color: var(--accent); }
+.nodes { position: relative; display: flex; flex-direction: column; gap: 22px; align-items: center; width: 100%; }
+.nodes::before { content: ''; position: absolute; left: 50%; top: 3px; bottom: 3px; width: 1px; background: var(--rule2); }
+.node { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
+.node:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+.ndot { position: relative; width: 9px; height: 9px; border: 1px solid var(--rule); background: var(--bg); transition: background 260ms ease, border-color 260ms ease, transform 260ms ease; }
+.node:hover .ndot { border-color: var(--accent); transform: scale(1.3); }
+.node.on .ndot { background: var(--accent); border-color: var(--accent); transform: rotate(45deg) scale(1.2); }
+.nlab { font-family: 'Space Mono', monospace; font-size: var(--fsNano); letter-spacing: 0.02em; color: var(--dim); transition: color 220ms ease; }
+.node:hover .nlab, .node.on .nlab { color: var(--ink); }
+.drule { width: 36px; height: 1px; background: var(--rule2); }
+.ibtn { appearance: none; cursor: pointer; background: none; border: 1px solid var(--rule2); border-radius: 10px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--dim); padding: 0; transition: transform 220ms ease, border-color 220ms ease, color 220ms ease; }
+.ibtn:hover { color: var(--ink); border-color: var(--accent); transform: scale(1.12); }
+.ibtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+

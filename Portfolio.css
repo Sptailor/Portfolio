@@ -43,3 +43,9 @@ body { margin: 0; }
   --gS1: rgba(0,0,0,0.22); --gS2: rgba(0,0,0,0.28); --gS3: rgba(0,0,0,0.30);
   --gBright: 0.96;
 }
+
+a { color: var(--ink); }
+a:hover { color: var(--accent); }
+.mono { font-family: 'Space Mono', monospace; }
+.lab { font-size: var(--fsMicro); color: var(--dim); }
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 26px; position: relative; z-index: 3; }

@@ -207,28 +207,35 @@
     '<path d="M6 3.2 10.8 8 6 12.8" fill="none" stroke="currentColor" stroke-width="1.6" ' +
     'stroke-linecap="round" stroke-linejoin="round"></path></svg></button>';
 
-  var CLOSER =
-    '<button class="closer" type="button" data-act="closeNav" aria-label="Close navigation"></button>';
-
   function syncNav() {
     var open = state.nav;
     if (drawer) {
       drawer.style.transform = 'translateY(-50%) translateX(' + (open ? '0px' : '-130px') + ')';
       drawer.style.opacity = open ? '1' : '0';
     }
-    var closer = root.querySelector('.closer');
     var handle = root.querySelector('.handle');
     if (open) {
       if (handle) { handle.remove(); }
-      if (!closer && canvas) { canvas.insertAdjacentHTML('afterend', CLOSER); }
-    } else {
-      if (closer) { closer.remove(); }
-      if (!handle && canvas) { canvas.insertAdjacentHTML('afterend', HANDLE); }
+    } else if (!handle && canvas) {
+      canvas.insertAdjacentHTML('afterend', HANDLE);
     }
   }
 
   on('closeNav', function () { state.nav = false; syncNav(); });
   on('openNav', function () { state.nav = true; syncNav(); });
+
+  /* Clicking away closes the drawer. This listens for the click rather than
+     covering the page with an overlay to catch it, so the click still reaches
+     whatever sits under it: the first click on Email opens the mail client
+     instead of being spent dismissing the drawer. */
+  document.addEventListener('click', function (e) {
+    if (!state.nav) { return; }
+    if (drawer && drawer.contains(e.target)) { return; }
+    if (e.target.closest && e.target.closest('.handle')) { return; }
+    state.nav = false;
+    syncNav();
+  });
+
   syncNav();
 
   /* ---------------------------------------------------------- nav dots --- */

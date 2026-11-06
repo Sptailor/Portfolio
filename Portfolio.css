@@ -113,3 +113,6 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .harrow { position: relative; z-index: 1; }
 @keyframes ping { 0% { transform: scale(0.5); opacity: 0.85; } 70% { transform: scale(3.2); opacity: 0; } 100% { opacity: 0; } }
 
+/* ---------- blocks ---------- */
+.mast { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 56px; align-items: start; }
+.meta { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 18px; padding: 8px 0; border-top: 1px solid var(--rule2); }

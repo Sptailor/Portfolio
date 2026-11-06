@@ -231,4 +231,19 @@
   on('openNav', function () { state.nav = true; syncNav(); });
   syncNav();
 
+  /* ---------------------------------------------------------- nav dots --- */
+
+  function syncNodes() {
+    var nodes = root.querySelectorAll('.node');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].classList.toggle('on', state.active === i);
+    }
+  }
+
+  on('pick', function (el) {
+    state.active = Array.prototype.indexOf.call(root.querySelectorAll('.node'), el);
+    syncNodes();
+  });
+  syncNodes();
+
 })();

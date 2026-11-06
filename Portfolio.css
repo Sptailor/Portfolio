@@ -227,6 +227,8 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .acchead > *:nth-child(5) { grid-row: 1; grid-column: 3; }
   .acchead > *:nth-child(3) { grid-row: 2; grid-column: 2; }
   .acchead > *:nth-child(4) { grid-row: 2; grid-column: 3; justify-self: end; }
+  /* fifty-three columns cannot fit a phone; let the year scroll */
+  .heat { grid-auto-columns: 10px; overflow-x: auto; padding-bottom: 5px; overscroll-behavior-x: contain; }
   .accgrid { grid-template-columns: 1fr; gap: 20px; }
   .spec, .meta { grid-template-columns: 1fr; gap: 4px; }
   .actstats { grid-template-columns: 1fr; gap: 14px; }

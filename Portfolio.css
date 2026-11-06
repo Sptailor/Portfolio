@@ -134,6 +134,18 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .acchead { appearance: none; cursor: pointer; width: 100%; background: none; border: 0; font: inherit; color: inherit; display: grid; grid-template-columns: 34px minmax(0, 1fr) 152px 56px 28px; gap: 16px; align-items: center; padding: 16px 8px; text-align: left; transition: background 220ms ease; border-radius: 10px; }
 .acchead:hover { background: var(--accentSoft); }
 .acchead:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* expand affordance: a plus that becomes a minus, mirroring the monogram tile */
+.exp { width: 28px; height: 28px; border-radius: 9px; border: 1px solid var(--rule2); position: relative;
+  transition: border-color 220ms ease, background 220ms ease; }
+.exp::before, .exp::after { content: ''; position: absolute; left: 50%; top: 50%; background: var(--dim);
+  transition: transform 420ms cubic-bezier(0.32,0.72,0,1), opacity 280ms ease, background 220ms ease; }
+.exp::before { width: 11px; height: 1.5px; margin: -0.75px 0 0 -5.5px; }
+.exp::after { width: 1.5px; height: 11px; margin: -5.5px 0 0 -0.75px; }
+.acchead:hover .exp { border-color: var(--accent); background: var(--accentSoft); }
+.acchead:hover .exp::before, .acchead:hover .exp::after { background: var(--accent); }
+.acchead[aria-expanded="true"] .exp { border-color: var(--accent); background: var(--accentSoft); }
+.acchead[aria-expanded="true"] .exp::before { background: var(--accent); }
+.acchead[aria-expanded="true"] .exp::after { transform: scaleY(0); opacity: 0; }
 
 .stat { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
 .statbig { font-family: 'Space Mono', monospace; font-size: 28px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }

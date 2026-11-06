@@ -161,3 +161,20 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .figlink:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .spec { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 16px; padding: 10px 0; border-top: 1px solid var(--rule3); }
 
+/* KiOO: two screens alternating in one laptop */
+.swap { position: relative; }
+.swap img { display: block; width: 100%; height: auto; }
+.swap .sB { position: absolute; left: 0; top: 0; }
+.swap .sA { animation: swapA 10s ease-in-out infinite; }
+.swap .sB { animation: swapB 10s ease-in-out infinite; }
+@keyframes swapA { 0%, 40% { opacity: 1; } 50%, 90% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes swapB { 0%, 40% { opacity: 0; } 50%, 90% { opacity: 1; } 100% { opacity: 0; } }
+.swapcap { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 12px; }
+.sdot { width: 6px; height: 6px; border-radius: 50%; background: var(--rule); }
+.sdot.dA { animation: swapA 10s ease-in-out infinite; background: var(--accent); }
+.sdot.dB { animation: swapB 10s ease-in-out infinite; background: var(--accent); }
+.swaplab { position: relative; height: 1.3em; min-width: 92px; }
+.swaplab span { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap; }
+.swaplab .lA { animation: swapA 10s ease-in-out infinite; }
+.swaplab .lB { animation: swapB 10s ease-in-out infinite; }
+

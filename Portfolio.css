@@ -206,6 +206,11 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .dimline::after { content: ''; position: absolute; left: 0; top: 0; width: 64px; height: 1px; background: var(--accent); animation: trace 9s linear infinite; }
 @keyframes trace { from { transform: translateX(0); } to { transform: translateX(1000%); } }
 
+@media (prefers-reduced-motion: reduce) {
+  .dimline::after, .handle, .pulse, .card::after { animation: none; }
+  .swap .sA, .swap .sB, .sdot, .swaplab span { animation: none; }
+  .swap .sB, .swaplab .lB { opacity: 0; }
+  .figlink:hover .dev { transform: none; }
 }
 @media (max-width: 900px) {
   .wrap { padding: 0 14px; }

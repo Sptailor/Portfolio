@@ -127,6 +127,21 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
 .btnB:hover { border-color: var(--accent); color: var(--accent); background: var(--accentSoft); transform: translateY(-2px); }
 .btnB:active { transform: translateY(0) scale(0.975); }
 
+/* node burst: ring expands out of the button on release */
+.btn { position: relative; overflow: hidden; }
+.ring { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px;
+  border-radius: 50%; background: var(--accentInk); opacity: 0; transform: scale(16);
+  transition: transform 640ms cubic-bezier(0.22,0.8,0.3,1), opacity 640ms ease; pointer-events: none; }
+.btn:active .ring { transform: scale(0); opacity: 0.36; transition: none; }
+.btnB .ring { background: var(--accent); }
+.blabel { position: relative; }
+
+/* magnetic label */
+.magIn { display: inline-block; transition: transform 320ms cubic-bezier(0.32,0.72,0,1); }
+
+/* warp underline for inline text links */
+.warpLink { position: relative; display: inline-block; text-decoration: none; padding-bottom: 6px; }
+.warpLink .ul { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; }
 .shead { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--rule2); padding-bottom: 12px; }
 
 .acc { border-top: 1px solid var(--rule2); margin-top: 4px; }

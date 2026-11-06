@@ -269,4 +269,26 @@
   });
   syncAcc();
 
+  /* ----------------------------------------------------------- magnets --- */
+
+  root.addEventListener('mousemove', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-mag]') : null;
+    if (!btn) { return; }
+    var label = btn.querySelector('.magIn');
+    if (!label) { return; }
+    var r = btn.getBoundingClientRect();
+    var dx = (e.clientX - (r.left + r.width / 2)) / 3;
+    var dy = (e.clientY - (r.top + r.height / 2)) / 3;
+    label.style.transform = 'translate(' +
+      Math.max(-13, Math.min(13, dx)).toFixed(1) + 'px, ' +
+      Math.max(-7, Math.min(7, dy)).toFixed(1) + 'px)';
+  }, true);
+
+  root.addEventListener('mouseout', function (e) {
+    var btn = e.target.closest ? e.target.closest('[data-mag]') : null;
+    if (!btn || (e.relatedTarget && btn.contains(e.relatedTarget))) { return; }
+    var label = btn.querySelector('.magIn');
+    if (label) { label.style.transform = 'translate(0.0px, 0.0px)'; }
+  }, true);
+
 })();

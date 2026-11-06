@@ -1,2 +1,45 @@
 body { margin: 0; }
 * { box-sizing: border-box; }
+
+/* small type scales up on bigger screens, where 10px grey is unreadable */
+.rootx { --fsNano: 11px; --fsMicro: 13px; --fsSmall: 13.5px; --fsBody2: 13.5px; }
+@media (min-width: 1500px) { .rootx { --fsNano: 12px; --fsMicro: 14px; --fsSmall: 15px; --fsBody2: 14px; } }
+@media (min-width: 1900px) { .rootx { --fsNano: 13px; --fsMicro: 15px; --fsSmall: 16px; --fsBody2: 14.5px; } }
+
+.rootx {
+  --bg: #EDEFEF; --panel: #FFFFFF; --panel2: #F6F7F7;
+  --rule: #8F9794; --rule2: #CFD4D2; --rule3: #E2E5E3;
+  --ink: #151817; --body: #2B302E; --dim: #3F4745;
+  --accent: #2E5BBA; --accentInk: #FFFFFF; --accentSoft: #2E5BBA14;
+  --accentHover: #24499B; --accentGlow: rgba(46,91,186,0.30);
+  --prod: #19603F; --prev: #8A5B0F; --arch: #585F5D;
+
+  /* Apple-style materials: thin for chrome, thick for text surfaces */
+  --thinBg: rgba(255,255,255,0.46);
+  --thickBg: rgba(255,255,255,0.17);
+  --innerBg: rgba(255,255,255,0.12);
+  --shine: rgba(255,255,255,0.40);
+  --gBorder: rgba(21,24,23,0.10);
+  --gTop: rgba(255,255,255,0.90);
+  --gBot: rgba(21,24,23,0.035);
+  --gS1: rgba(17,24,39,0.05); --gS2: rgba(17,24,39,0.07); --gS3: rgba(17,24,39,0.07);
+  --gBright: 1.06;
+}
+.rootx.dark {
+  --bg: #161618; --panel: #1E2225; --panel2: #1A1E20;
+  --rule: #4A5250; --rule2: #2E3336; --rule3: #262B2E;
+  --ink: #F0F2F1; --body: #CBD0CE; --dim: #A9B0AE;
+  --accent: #4A9EFF; --accentInk: #0B1016; --accentSoft: #4A9EFF1F;
+  --accentHover: #76B6FF; --accentGlow: rgba(74,158,255,0.34);
+  --prod: #7FC9A0; --prev: #E0B463; --arch: #9AA2A0;
+
+  --thinBg: rgba(34,37,41,0.46);
+  --thickBg: rgba(255,255,255,0.032);
+  --innerBg: rgba(255,255,255,0.028);
+  --shine: rgba(255,255,255,0.11);
+  --gBorder: rgba(255,255,255,0.10);
+  --gTop: rgba(255,255,255,0.11);
+  --gBot: rgba(0,0,0,0.20);
+  --gS1: rgba(0,0,0,0.22); --gS2: rgba(0,0,0,0.28); --gS3: rgba(0,0,0,0.30);
+  --gBright: 0.96;
+}

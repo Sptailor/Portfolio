@@ -246,4 +246,27 @@
   });
   syncNodes();
 
+  /* --------------------------------------------------------- accordion --- */
+
+  function syncAcc() {
+    var rows = root.querySelectorAll('.accrow');
+    for (var i = 0; i < rows.length; i++) {
+      var head = rows[i].querySelector('.acchead');
+      var body = rows[i].querySelector('.accbody');
+      var open = state.open === i;
+      if (head) { head.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+      if (!body) { continue; }
+      body.style.maxHeight = open ? (rows[i].hasAttribute('data-rich') ? '860px' : '360px') : '0px';
+      body.style.opacity = open ? '1' : '0';
+    }
+  }
+
+  on('toggle', function (el) {
+    var row = el.closest('.accrow');
+    var i = Array.prototype.indexOf.call(root.querySelectorAll('.accrow'), row);
+    state.open = state.open === i ? -1 : i;
+    syncAcc();
+  });
+  syncAcc();
+
 })();

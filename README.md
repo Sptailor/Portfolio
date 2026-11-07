@@ -47,7 +47,7 @@ Then open <http://localhost:8000>. A server is needed rather than opening the fi
 
 ## Browser support
 
-Chrome, Firefox, Safari 14+ and Edge. The design depends on `backdrop-filter`; images are WebP, which every browser meeting that bar also supports.
+Chrome, Firefox, Safari 15.4+ and Edge. The floor is set by `:focus-visible` and `aspect-ratio`; `backdrop-filter` is used with its `-webkit-` prefix, and WebP is supported everywhere above that bar.
 
 ## Contact
 

@@ -209,15 +209,47 @@
 
   function syncNav() {
     var open = state.nav;
+    var handle = root.querySelector('.handle');
+    var leavingDrawer = drawer && drawer.contains(document.activeElement);
+    var leavingHandle = handle && handle.contains(document.activeElement);
+
     if (drawer) {
       drawer.style.transform = 'translateY(-50%) translateX(' + (open ? '0px' : '-130px') + ')';
       drawer.style.opacity = open ? '1' : '0';
+
+      /* A closed drawer is invisible but still laid out, so without this its
+         links stayed in the tab order and a keyboard user got a run of stops
+         on nothing. `inert` covers current browsers; the tabindex pass is the
+         fallback for anything that does not support it yet. */
+      if (open) {
+        drawer.removeAttribute('inert');
+        drawer.removeAttribute('aria-hidden');
+      } else {
+        drawer.setAttribute('inert', '');
+        drawer.setAttribute('aria-hidden', 'true');
+      }
+      var items = drawer.querySelectorAll('a[href], button');
+      for (var i = 0; i < items.length; i++) {
+        if (open) { items[i].removeAttribute('tabindex'); }
+        else { items[i].setAttribute('tabindex', '-1'); }
+      }
     }
-    var handle = root.querySelector('.handle');
+
+    /* Opening removes the handle and closing makes the drawer unreachable, so
+       either way the focused element can vanish. Hand focus on rather than
+       dropping it back to the top of the document. */
     if (open) {
       if (handle) { handle.remove(); }
-    } else if (!handle && canvas) {
-      canvas.insertAdjacentHTML('afterend', HANDLE);
+      if (leavingHandle && drawer) {
+        var first = drawer.querySelector('a[href], button');
+        if (first) { first.focus(); }
+      }
+    } else {
+      if (!handle && canvas) { canvas.insertAdjacentHTML('afterend', HANDLE); }
+      if (leavingDrawer) {
+        var tab = root.querySelector('.handle');
+        if (tab) { tab.focus(); }
+      }
     }
   }
 

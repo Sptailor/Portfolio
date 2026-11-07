@@ -24,7 +24,6 @@ Resume.pdf
 assets/                        images used by the site, favicon, OG image
 data/activity.json             GitHub contribution snapshot
 scripts/activity.mjs           regenerates the snapshot
-images/                        older assets, not referenced by the site
 .github/workflows/activity.yml daily refresh
 ```
 

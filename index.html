@@ -1,617 +1,1100 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <head>
+  <script>
+    if (window.location.hostname === "sptailor.github.io") {
+      window.location.href = "https://portfolio-sptailor.vercel.app";
+    }
+  </script>
 
-    <!-- Redirect only if on GitHub Pages -->
-    <script>
-      if (window.location.hostname === "sptailor.github.io") {
-        window.location.href = "https://portfolio-sptailor.vercel.app";
-      }
-    </script>
+  <title>Suhail Tailor — Software Engineer</title>
+  <meta name="description" content="Software engineering master's student at San José State, with four projects running in production and a fifth in developer preview. Seeking a Summer 2027 internship.">
+  <meta name="author" content="Suhail Tailor">
+  <link rel="canonical" href="https://portfolio-sptailor.vercel.app/">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Portfolio.css">
-    <script src></script>
-    <link rel="icon" href="images/favicon.png">
-    <link rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-    <title>Suhail Tailor</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://portfolio-sptailor.vercel.app/">
+  <meta property="og:title" content="Suhail Tailor — Software Engineer">
+  <meta property="og:description" content="Software engineering master's student at San José State, with four projects running in production and a fifth in developer preview.">
+  <meta property="og:image" content="https://portfolio-sptailor.vercel.app/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Suhail Tailor — Software Engineer">
+  <meta name="twitter:description" content="Software engineering master's student at San José State, with four projects running in production and a fifth in developer preview.">
+  <meta name="twitter:image" content="https://portfolio-sptailor.vercel.app/assets/og.png">
 
-    <script src="https://cdn.counter.dev/script.js"
-      data-id="0fc1de83-cf2d-417a-ba40-2e0e9ffc077b"
-      data-utcoffset="-5"></script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-    <script>
-  // Only load GA if we do NOT have the ignoreMe cookie
-  if (document.cookie.indexOf('ignoreMe=true') === -1) {
-    // Load GA script dynamically
-    var gaScript = document.createElement('script');
-    gaScript.async = true;
-    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-VYHMNLLFQ6";
-    document.head.appendChild(gaScript);
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
 
-    // Standard gtag initialization
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-VYHMNLLFQ6');
-  }
-</script>
+  <link rel="stylesheet" href="Portfolio.css">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="Main.js"></script>
+</head>
+<body>
+<div class="rootx dark" style="position: relative; width: 100%; min-height: 100vh; background: var(--bg); color: var(--ink); font-family: 'Instrument Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased;">
 
-    <!-- Vercel Analytics -->
-    <script src="https://cdn.vercel-insights.com/v1/script.js" async></script>
+  <canvas id="kgcanvas" aria-hidden="true"></canvas>
 
-  </head>
+  
+  <aside class="drawer thin" style="transform: translateY(-50%) translateX(0px); opacity: 1;">
+    <a class="mark" href="#landing" aria-label="Back to top">ST</a>
+    <span class="drule" aria-hidden="true"></span>
 
-  <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loader">
-      <div class="loader-card">
-        <span class="loader-initials">ST</span>
-        <div class="loader-dots">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
+    <nav class="nodes" aria-label="Sections">
+
+        <a class="node on" href="#landing" data-act="pick">
+          <span class="ndot" aria-hidden="true"></span>
+          <span class="nlab">intro</span>
+        </a>
+
+        <a class="node " href="#about" data-act="pick">
+          <span class="ndot" aria-hidden="true"></span>
+          <span class="nlab">about</span>
+        </a>
+
+        <a class="node " href="#work" data-act="pick">
+          <span class="ndot" aria-hidden="true"></span>
+          <span class="nlab">work</span>
+        </a>
+
+        <a class="node " href="#shipped" data-act="pick">
+          <span class="ndot" aria-hidden="true"></span>
+          <span class="nlab">shipped</span>
+        </a>
+
+        <a class="node " href="#contact" data-act="pick">
+          <span class="ndot" aria-hidden="true"></span>
+          <span class="nlab">contact</span>
+        </a>
+
+    </nav>
+
+    <span class="drule" aria-hidden="true"></span>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button class="ibtn" type="button" data-act="toggleTheme" aria-pressed="true" aria-label="Switch to light theme">
+
+          <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.3"></circle><path d="M8 .9v2M8 13.1v2M.9 8h2M13.1 8h2M3 3l1.4 1.4M11.6 11.6 13 13M13 3l-1.4 1.4M4.4 11.6 3 13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path></svg>
+
+      </button>
+      <button class="ibtn" type="button" data-act="closeNav" aria-label="Close navigation">
+        <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.8 3.2 5 8l4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </button>
     </div>
+  </aside>
 
-    <div class="floating-logos">
-      <div class="logo-item" data-tech="html">
-        <i class="uil uil-html5-alt"></i>
-      </div>
-      <div class="logo-item" data-tech="css">
-        <i class="uil uil-css3-simple"></i>
-      </div>
-      <div class="logo-item" data-tech="js">
-        <i class="uil uil-java-script"></i>
-      </div>
-      <div class="logo-item" data-tech="java">
-        ☕
-      </div>
-      <div class="logo-item" data-tech="cpp">
-        C++
-      </div>
-      <div class="logo-item" data-tech="sql">
-        SQL
-      </div>
-      <div class="logo-item" data-tech="git">
-        <i class="uil uil-github-alt"></i>
-      </div>
-      <div class="logo-item" data-tech="react">
-        <i class="uil uil-react"></i>
-      </div>
-      <div class="logo-item" data-tech="claude">
-        AI
-      </div>
-    </div>
-    <div id="landing">
-      <a class="toggle-button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
-      <nav id="outer-nav" class="slide-out">
-        <div class="nav">
-          <ul>
-            <li><a href="#landing" target="_self"><i class="uil uil-estate"
-                  style="color: white;"></i>Home</a></li>
-            <li><a href="#intro-container" target="_self"><i
-                  class="uil uil-user-circle"
-                  style="color: white;"></i>About</a></li>
-            <li><a href="#project-outerContainer" target="_self"><i
-                  class="uil uil-briefcase-alt"
-                  style="color: white;"></i>Portfolio</a></li>
+  <main class="wrap" style="padding-top: 26px; padding-bottom: 26px;">
 
-            <li><a href="#course-container" target="_self"><i
-                  class="uil uil-graduation-cap"
-                  style="color: white;"></i>Courses</a></li>
+    <section id="landing" class="card thick mast">
+      <div>
+        <h1 class="nm" style="margin: 0; font-size: 74px; font-weight: 700; letter-spacing: -0.042em; line-height: 0.97;">Suhail Tailor</h1>
+        <p style="margin: 20px 0 0; font-size: 24px; font-weight: 500; line-height: 1.34; letter-spacing: -0.018em; max-width: 25em; color: var(--ink);">Software engineering master's student at San José State, with four projects running in production and a fifth in developer preview.</p>
 
-          </ul>
-        </div>
-      </nav>
+        <div style="margin-top: 32px; border-bottom: 1px solid var(--rule2);">
 
-      <div id="name">
-
-        <h1 id="name"><span style="color: #00f9ff;">Suhail</span> Tailor</h1>
-        <div class="typer-container">
-          <p><span class="typer"></span></p>
-        </div>
-        <div class="landing-contact">
-          <div class="link-container">
-            <a href="Resume.pdf" alt="Resume" target="_blank"><i id="icon"
-                class="uil uil-file-search-alt"></i> </a>
-
-            <span class="hover-message">Resume</span>
-          </div>
-
-          <div class="link-container">
-            <a href="https://github.com/Sptailor" alt="Github"
-              target="_blank"><i id="icon"
-                class="uil uil-github"></i></a>
-            <span class="hover-message">Github</span>
-          </div>
-
-          <div class="link-container">
-            <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/"
-              alt="LinkedIn" target="_blank"><i id="icon"
-                class="uil uil-linkedin"></i></a>
-            <div class="hover-message">linkedIn</div>
-          </div>
-          <div class="link-container">
-            <a href="mailto:suhailtailor96@gmail.com" target="_blank"><i id="icon"
-                class="uil uil-envelope-alt"></i></a>
-
-            <span class="hover-message">Email</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="scroll-indicator">
-        <div class="scroll-mouse">
-          <div class="scroll-wheel"></div>
-        </div>
-      </div>
-    </div>
-    <div id="intro-container" class="hidden">
-      <div class="split">
-        <h2 style="text-align: center;"><span class='split-inner'>About
-            Me</span>
-        </h2>
-      </div>
-
-      <div class="about-content">
-        <div id="picture">
-          <img src="images/profile.png" alt="profile picture"
-            style="border-radius: 25%;
-              padding: 3%;
-              width: 56%;">
-
-        </div>
-
-        <div id="about">
-
-          <p>I'm a software engineer who enjoys building real-world projects
-            from ideas and iterating on them until they feel right. With a
-            strong foundation in JavaScript, HTML, CSS, SQL, Java, and C++, I
-            focus on problem-solving, learning new tools, and continuously
-            improving my craft.</p>
-
-          <p>At Illinois State University, I contributed to the Solar Car and
-            Rocket Landing teams, working on simulations, documentation, version
-            control, and cross-team collaboration. These experiences
-            strengthened my ability to think critically, build reliable
-            software, and work effectively in technical environments.</p>
-
-          <p>Outside of coding, I enjoy golf, hiking, and traveling—experiences
-            that keep me curious and grounded.
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="project-outerContainer" class="hidden">
-      <section id="Projects">
-        <div class="split">
-          <h2><span class="split-inner">Portfolio</span></h2>
-        </div>
-        <!-- Comprehensive Home Care -->
-        <div id="project-x">
-
-          <div class="project-display">
-            <a href="https://comprehensive-home-care-demo.vercel.app/index.html"
-              target="_blank">
-              <img src="images/CHC.png" alt="CHC Img" width="500vw">
-            </a>
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a
-                href="https://comprehensive-home-care-demo.vercel.app/index.html"
-                target="_blank"><h3>Home Care Service Website</h3></a>
-              <a href="https://github.com/Sptailor/Comprehensive-Home-Care-Demo"
-                target="_blank" class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
+            <div class="meta">
+              <span class="mono lab">studying</span>
+              <span style="font-size: 15px; line-height: 1.45; color: var(--ink);">M.S. Software Engineering, San José State University, expected 2028</span>
             </div>
-            <p>Professional home care service website featuring a contact form,
-              service inquiry flow, and clear business information. Built with
-              modern front-end technologies focused on clean UI, accessibility,
-              and intuitive navigation.</p>
-            <div id="technology">
-              <span class="left-line" style="padding-left: 5px;"></span>
-              <h4>JavaScript</h4>
-              <h4>CSS</h4>
-              <h4>HTML</h4>
-              <h4>API</h4>
-              <span class="left-line"></span>
+
+            <div class="meta">
+              <span class="mono lab">seeking</span>
+              <span style="font-size: 15px; line-height: 1.45; color: var(--ink);">Software engineering internship, Summer 2027</span>
+            </div>
+
+            <div class="meta">
+              <span class="mono lab">based</span>
+              <span style="font-size: 15px; line-height: 1.45; color: var(--ink);">San José, California</span>
+            </div>
+
+            <div class="meta">
+              <span class="mono lab">degree</span>
+              <span style="font-size: 15px; line-height: 1.45; color: var(--ink);">B.S. Computer Science, Illinois State University, 2025</span>
+            </div>
+
+        </div>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px;">
+          <a href="mailto:suhail.tailor@sjsu.edu" class="btn btnA" data-mag="top">
+            <span class="ring" aria-hidden="true"></span>
+            <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Email</span>
+          </a>
+          <a href="Resume.pdf" class="btn btnB"><span class="ring" aria-hidden="true"></span><span class="blabel">Résumé</span></a>
+          <a href="https://github.com/Sptailor" class="btn btnB"><span class="ring" aria-hidden="true"></span><span class="blabel">GitHub</span></a>
+        </div>
+      </div>
+
+      <div>
+        <div style="padding: 8px; border-radius: 16px; border: 1px solid var(--gBorder); background: var(--innerBg);">
+          <img src="assets/profile.webp" alt="Suhail Tailor" style="display: block; width: 100%; height: 324px; object-fit: cover; object-position: center top; border-radius: 10px;">
+        </div>
+        <p class="mono" style="margin: 10px 0 0; font-size: var(--fsMicro); color: var(--dim);">SAN JOSÉ, CALIFORNIA / 2026</p>
+      </div>
+    </section>
+
+    <section id="about" class="card thick">
+      <div class="abt">
+        <span class="mono lab">about</span>
+        <div style="max-width: 48em;">
+          <p class="lead" style="margin: 0 0 20px; font-size: 29px; font-weight: 500; line-height: 1.34; letter-spacing: -0.022em; color: var(--ink);">I work across the full stack, and most of what I have built went to a client rather than a grader.</p>
+          <p style="margin: 0 0 16px; font-size: 18px; line-height: 1.65; color: var(--body);">That has meant owning the schema, the API, the interface and the deploy on the same project, then being responsible for those decisions once real users arrived rather than once the demo ended.</p>
+          <p style="margin: 0; font-size: 18px; line-height: 1.65; color: var(--body);">The problems I find most worth solving are the ones with hard constraints: payments that have to reconcile, sessions that must not leak, market data that is already stale the moment you fetch it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="card thick">
+      <div class="shead">
+        <div class="stat">
+          <span class="statbig" style="color: var(--accent);">4</span>
+          <span style="font-size: 15px; color: var(--body);">live in production</span>
+          <span style="color: var(--rule2);">·</span>
+          <span class="statbig" style="color: var(--ink);">8</span>
+          <span style="font-size: 15px; color: var(--body);">builds</span>
+          <span style="color: var(--rule2);">·</span>
+          <span class="mono" style="font-size: var(--fsSmall); color: var(--dim);">2023 to 2026</span>
+        </div>
+        <span class="mono lab">open a row for the detail</span>
+      </div>
+
+      <div class="acc">
+
+          <div class="accrow" data-rich>
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="true">
+              <span class="mg" aria-hidden="true">KO</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">KiOO</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">A secure document library that answers questions about your own files</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #E0B463;" data-tint="prev" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #E0B463; white-space: nowrap;" data-tint="prev">developer preview</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2026</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 860px; opacity: 1;">
+
+                <div class="accgrid">
+
+                    <div>
+                      <div class="swap">
+                        <img class="sA" src="assets/kioo-login.webp" alt="KiOO sign-in screen on a laptop">
+                        <img class="sB" src="assets/kioo-dashboard.webp" alt="KiOO dashboard on a laptop">
+                      </div>
+                      <div class="swapcap">
+                        <span class="sdot dA" aria-hidden="true"></span>
+                        <span class="mono lab swaplab" style="font-size: var(--fsNano);">
+                          <span class="lA">sign in</span>
+                          <span class="lB">dashboard</span>
+                        </span>
+                        <span class="sdot dB" aria-hidden="true"></span>
+                      </div>
+                    </div>
+
+                  <div>
+                    <div style="border-bottom: 1px solid var(--rule3);">
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">problem</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">A place for a team to keep its files, where you can ask a question in plain English and get an answer drawn from your own documents. Folders are shared with control over who can view and who can edit.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">what I built</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">The front end. Around twenty features across the product: documents, notes, task lists, tags, settings, the home dashboard and the whole sign-in experience. Each one works by keyboard as well as mouse, and in both light and dark. 101 commits across 114 files, with 76 files of tests alongside them.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">TypeScript, React 19, Vite, NestJS, PostgreSQL, Redis, Vitest</span>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px;">
+                      <a href="mailto:suhail.tailor@sjsu.edu?subject=KiOO%20walkthrough" class="btn btnA" style="font-size: var(--fsBody2); padding: 10px 17px;" data-mag="acc">
+                        <span class="ring" aria-hidden="true"></span>
+                        <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Request a walkthrough</span>
+                      </a>
+                      <a href="mailto:suhail.tailor@sjsu.edu" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Not public yet</span></a>
+                    </div>
+                  </div>
+                </div>
 
             </div>
           </div>
+
+          <div class="accrow" data-rich>
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">SS</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">StockSensei</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Indicators, breakout detection and sentiment over live market data</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #7FC9A0;" data-tint="prod" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #7FC9A0; white-space: nowrap;" data-tint="prod">production</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2025</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accgrid">
+
+                    <a class="figlink stage" href="https://stocksensei-five.vercel.app/" style="text-decoration: none;">
+                      <img class="dev" src="assets/stocksensei.webp" alt="StockSensei analysis dashboard shown on a laptop">
+                    </a>
+
+                  <div>
+                    <div style="border-bottom: 1px solid var(--rule3);">
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">problem</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Retail traders get indicators and headlines from different places, then reconcile them under time pressure.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">approach</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Indicators and breakout detection compute server-side over live price data and cache, so a symbol lookup stays fast. Sentiment renders beside the numbers, not in another tab.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Next.js, TypeScript, PostgreSQL, Tailwind, market data APIs</span>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px;">
+                      <a href="https://stocksensei-five.vercel.app/" class="btn btnA" style="font-size: var(--fsBody2); padding: 10px 17px;" data-mag="acc">
+                        <span class="ring" aria-hidden="true"></span>
+                        <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Open the dashboard</span>
+                      </a>
+                      <a href="https://github.com/Sptailor/stocksensei" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Source</span></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow" data-rich>
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">LJ</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">LuxJewels</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">A storefront that takes real money, with an admin the owner runs</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #7FC9A0;" data-tint="prod" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #7FC9A0; white-space: nowrap;" data-tint="prod">production</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2025</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accgrid">
+
+                    <a class="figlink stage" href="https://jewel-iy17.vercel.app/" style="text-decoration: none;">
+                      <img class="dev" src="assets/lux.webp" alt="LuxJewels storefront shown on a laptop">
+                    </a>
+
+                  <div>
+                    <div style="border-bottom: 1px solid var(--rule3);">
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">problem</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">A small seller needed a storefront that takes payment and can be administered by somebody who does not read code.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">approach</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Stripe handles payment intents and webhooks; NextAuth guards the admin boundary. Migrations run against Postgres, and the catalog is server-rendered.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Next.js 15, TypeScript, Prisma, PostgreSQL, Stripe, NextAuth, Tailwind</span>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px;">
+                      <a href="https://jewel-iy17.vercel.app/" class="btn btnA" style="font-size: var(--fsBody2); padding: 10px 17px;" data-mag="acc">
+                        <span class="ring" aria-hidden="true"></span>
+                        <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Visit the store</span>
+                      </a>
+                      <a href="https://github.com/Sptailor/Jewel" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Source</span></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow" data-rich>
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">TS</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">teamsold.us</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Listing and lead site for a working real estate agent</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #7FC9A0;" data-tint="prod" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #7FC9A0; white-space: nowrap;" data-tint="prod">production</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2024</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accgrid">
+
+                    <a class="figlink stage" href="https://teamsold.us/" style="text-decoration: none;">
+                      <img class="dev" src="assets/teamsold.webp" alt="teamsold.us realtor home page shown on a laptop">
+                    </a>
+
+                  <div>
+                    <div style="border-bottom: 1px solid var(--rule3);">
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">problem</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">An agent was losing leads to a site he could not update himself between showings.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">approach</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Built so the owner edits listings without me in the loop, with layouts that hold from a phone in a driveway to a desktop.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">WordPress, JavaScript, HTML, CSS</span>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px;">
+                      <a href="https://teamsold.us/" class="btn btnA" style="font-size: var(--fsBody2); padding: 10px 17px;" data-mag="acc">
+                        <span class="ring" aria-hidden="true"></span>
+                        <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Visit the site</span>
+                      </a>
+                      <a href="https://teamsold.us/" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Live since 2024</span></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow" data-rich>
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">HC</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">Comprehensive Home Care</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Healthcare site and client intake flow, built as their web developer</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #7FC9A0;" data-tint="prod" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #7FC9A0; white-space: nowrap;" data-tint="prod">production</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2025</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accgrid">
+
+                    <a class="figlink stage" href="https://comprehensive-home-care-demo.vercel.app/index.html" style="text-decoration: none;">
+                      <img class="dev" src="assets/homecare.webp" alt="Comprehensive Home Care home page shown on a laptop">
+                    </a>
+
+                  <div>
+                    <div style="border-bottom: 1px solid var(--rule3);">
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">problem</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">People reach a home care site mid-crisis. Burying services, coverage and cost behind navigation costs the provider real enquiries.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">approach</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Rebuilt the site in Next.js with client-side validation on the intake form, responsive navigation, Google Maps integration and reusable components. Tested across browsers, devices, assistive tech and degraded network conditions, which is where most of the submission-reliability problems turned out to be hiding.</span>
+                        </div>
+
+                        <div class="spec">
+                          <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                          <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Next.js, JavaScript, HTML, CSS</span>
+                        </div>
+
+                    </div>
+                    <div style="display: flex; gap: 9px; flex-wrap: wrap; margin-top: 20px;">
+                      <a href="https://comprehensive-home-care-demo.vercel.app/index.html" class="btn btnA" style="font-size: var(--fsBody2); padding: 10px 17px;" data-mag="acc">
+                        <span class="ring" aria-hidden="true"></span>
+                        <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">Visit the site</span>
+                      </a>
+                      <a href="https://github.com/Sptailor/Comprehensive-Home-Care-Demo" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Source</span></a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow">
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">WT</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">Parallel water trap</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Rainwater volume split across threads, then across machines</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #9AA2A0;" data-tint="arch" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #9AA2A0; white-space: nowrap;" data-tint="arch">source only</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2024</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accplain">
+                  <div style="border-bottom: 1px solid var(--rule3);">
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">idea</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">The height array is partitioned with OpenMP across threads and with MPI across nodes. The hard part is the boundary: each partition needs prefix maxima from its neighbours before its local answer is correct.</span>
+                      </div>
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">C, OpenMP, MPI</span>
+                      </div>
+
+                  </div>
+                  <div style="margin-top: 18px;">
+                    <a href="https://github.com/Sptailor/waterTrap" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Read the source</span></a>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow">
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">MZ</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">Maze generator</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Perfect-maze carving driven by disjoint-set union-find</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #9AA2A0;" data-tint="arch" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #9AA2A0; white-space: nowrap;" data-tint="arch">source only</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2023</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accplain">
+                  <div style="border-bottom: 1px solid var(--rule3);">
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">idea</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">A wall comes down only when the two cells belong to different sets, which guarantees exactly one path between any two cells. Union by rank with path compression keeps the merge near constant time as the grid grows.</span>
+                      </div>
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">C++</span>
+                      </div>
+
+                  </div>
+                  <div style="margin-top: 18px;">
+                    <a href="https://github.com/Sptailor/MazeGenerator" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Read the source</span></a>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="accrow">
+            <button class="acchead" type="button" data-act="toggle" aria-expanded="false">
+              <span class="mg" aria-hidden="true">PB</span>
+              <span>
+                <span style="display: block; font-size: 18.5px; font-weight: 700; letter-spacing: -0.025em;">Pickleball scheduling</span>
+                <span style="display: block; font-size: var(--fsBody2); color: var(--dim); margin-top: 3px;">Match scheduling built by a team through a full SDLC</span>
+              </span>
+              <span style="display: flex; align-items: center; gap: 7px;">
+                <span aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-radius: 2px; flex: 0 0 auto; background: #9AA2A0;" data-tint="arch" data-tint-bg></span>
+                <span class="mono" style="font-size: var(--fsMicro); color: #9AA2A0; white-space: nowrap;" data-tint="arch">source only</span>
+              </span>
+              <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">2023</span>
+              <span style="display: flex; justify-content: flex-end;">
+                <span class="exp" aria-hidden="true"></span>
+              </span>
+            </button>
+
+            <div class="accbody" style="max-height: 0px; opacity: 0;">
+
+                <div class="accplain">
+                  <div style="border-bottom: 1px solid var(--rule3);">
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">idea</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Scheduling matches for a club is a constraint problem wearing a CRUD app as a disguise: player availability, court capacity and sensible pairing all have to agree before a slot is real. The part worth mentioning is the process rather than the code. We worked it as a team across Agile sprints with requirements, design documents, peer review and testing, instead of going straight to the keyboard.</span>
+                      </div>
+
+                      <div class="spec">
+                        <span class="mono lab" style="font-size: var(--fsMicro);">stack</span>
+                        <span style="font-size: 14.5px; line-height: 1.58; color: var(--body);">Java, Spring Boot, SQL, HTML, CSS, JavaScript, JSON</span>
+                      </div>
+
+                  </div>
+                  <div style="margin-top: 18px;">
+                    <a href="https://github.com/Sptailor/pickle_planner" class="btn btnB" style="font-size: var(--fsBody2); padding: 10px 17px;"><span class="ring" aria-hidden="true"></span><span class="blabel">Read the source</span></a>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+      </div>
+    </section>
+
+    <section id="shipped" class="card thick">
+      <div class="shead">
+        <h2 class="big" style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em;">What shipped when</h2>
+        <span class="mono lab">2023 to now</span>
+      </div>
+      <div style="padding: 38px 6px 0;">
+        <div class="dimline" aria-hidden="true" style="margin-bottom: 18px;">
+
+            <span style="position: absolute; left: 4%; top: -4px; width: 9px; height: 9px; margin-left: -4px; background: #9AA2A0;" data-tint="arch" data-tint-bg></span>
+
+            <span style="position: absolute; left: 36%; top: -4px; width: 9px; height: 9px; margin-left: -4px; background: #86A4C4;" data-tint="mark2" data-tint-bg></span>
+
+            <span style="position: absolute; left: 68%; top: -4px; width: 9px; height: 9px; margin-left: -4px; background: #4A9EFF;" data-tint="accent" data-tint-bg></span>
+
+            <span style="position: absolute; left: 96%; top: -4px; width: 9px; height: 9px; margin-left: -4px; background: #E0B463;" data-tint="prev" data-tint-bg></span>
+
         </div>
-        <br>
-        <hr>
-        <br>
-        <!-- LuxJewels -->
-        <div id="project-x">
-          <div class="project-display">
-            <a href="https://jewel-iy17.vercel.app/" target="_blank">
-              <img src="images/LuxJewels .png" alt="image of the demo"
-                width="500vw">
-            </a>
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://jewel-iy17.vercel.app/"
-                target="_blank"><h3>LuxJewels</h3></a>
-              <a href="https://github.com/Sptailor/Jewel" target="_blank"
-                class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
-            </div>
-            <p>
-              Full-stack ecommerce platform built with Next.js 15, TypeScript,
-              Prisma, and PostgreSQL
-            </p>
-            <p>
-              Features Stripe payment integration, NextAuth authentication,
-              admin dashboard, and responsive Tailwind CSS design
-            </p>
-            <p>
-              Implemented efficient server-side rendering and API routes to
-              optimize performance and provide a fast, scalable user experience.
-            </p>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
 
-            <div id="technology">
-              <h4> Next.js </h4>
-              <span> </span>
-              <h4 class="left-line"> Prisma </h4>
-              <span> </span>
-              <h4 class="left-line"> PostgreSQL </h4>
-              <span> </span>
-              <h4 class="left-line"> Stripe </h4>
-            </div>
-          </div>
-
-        </div>
-
-        <br>
-        <hr>
-        <br>
-        <!-- StockSensei -->
-        <div id="project-x">
-          <div class="project-display">
-            <a href="https://stocksensei-five.vercel.app/"
-              target="_blank">
-              <img src="images/StockSensei.png" alt="MorseDecoder"
-                width="500vw">
-            </a>
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://stocksensei-five.vercel.app/"
-                target="_blank"><h3>StockSensei</h3></a>
-              <a href="https://github.com/Sptailor/stocksensei" target="_blank"
-                class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
-            </div>
-            <p>
-              AI-driven stock and crypto analysis platform featuring technical
-              indicators, breakout detection, and news-based sentiment analysis
-            </p>
-            <p>
-              Integrated real-time market data APIs and machine learning models
-              to deliver comprehensive financial analysis and trading signals.
-            </p>
-
-            <div id="technology">
-              <h4> Next.js </h4>
-              <!-- <span> </span> -->
-              <h4 class="left-line"> TypeScript</h4>
-              <!-- <span> </span> -->
-              <h4 class="left-line"> PostgreSQL </h4>
-              <!-- <span> </span> -->
-              <h4 class="left-line"> Tailwind</h4>
-              <!-- <h4>TypeScript</h4>
-              <h4>Next.js</h4>
-              <h4>PostgreSQL</h4>
-              <h4>Tailwind</h4> -->
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-        <!-- Realtor website -->
-        <div id="project-x">
-          <div class="project-display">
-            <a href="https://teamsold.us/"
-              target="_blank">
-              <img src="images/Remax.png" alt="Home page" width="500vw">
-            </a>
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://teamsold.us/"
-                target="_blank"><h3>Realtor website</h3></a>
-              <a href="https://teamsold.us/" target="_blank"
-                class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
-            </div>
-            <p>Created a responsive realtor website for a local real estate
-              agent to showcase property listings and facilitate client
-              interactions.
-            </p>
-            <div id="technology">
-
-              <h4>JavaScript</h4>
-              <h4 class="left-line">HTML</h4>
-              <h4 class="left-line">CSS</h4>
-              <h4>WordPress</h4>
-            </div>
-          </div>
-        </div>
-        <br>
-        <hr>
-        <br>
-
-        <!-- portfolio -->
-        <div id="project-x">
-
-          <div class="project-display">
-            <a href="https://github.com/Sptailor" target="_blank"><img
-                src="images/Portfolio.png" alt="Portfolio"
-                width="500vw"></a>
-
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://github.com/Sptailor" target="_blank">
-                <h3>Portfolio</h3></a>
-              <a href="https://github.com/Sptailor" target="_blank"
-                class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
+            <div>
+              <div class="mono" style="font-size: var(--fsSmall); font-weight: 700; color: #9AA2A0;" data-tint="arch">2023</div>
+              <div style="font-size: var(--fsBody2); line-height: 1.55; color: var(--body); margin-top: 6px;">Maze generator in C++, and the pickleball scheduling app built with a team in Java.</div>
             </div>
 
-            <p>Designed and developed a responsive portfolio website to showcase
-              my technical skills, hands-on projects, and academic coursework
-              using modern web technologies.</p>
-            <div id="technology">
-              <h4> JavaScript </h4>
-              <span> </span>
-              <h4 class="left-line"> HTML </h4>
-              <span> </span>
-              <h4 class="left-line"> CSS </h4>
-
-            </div>
-          </div>
-        </div>
-        <br>
-        <hr>
-        <br>
-        <!-- Water trap -->
-        <div id="project-x">
-          <div class="project-display">
-            <a href="https://github.com/Sptailor/waterTrap" target="_blank">
-              <img src="images/waterTrap.png"
-                alt="image of waterTrap" width="500vw"></a>
-
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://github.com/Sptailor/waterTrap" target="_blank">
-                <h3>Parallel Water Trap Algorithm </h3></a>
-              <a href="https://github.com/Sptailor/waterTrap" target="_blank"
-                class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
-            </div>
-            <p>
-              Developed a parallelized solution to the classic Trapping
-              Rainwater problem, optimizing computation across multiple cores.
-            </p>
-            <p>
-              The algorithm calculates the total volume of rainwater trapped
-              between vertical surfaces represented by an array of heights.
-            </p>
-
-            <div id="technology">
-              <h4>C</h4>
-              <span> </span>
-              <h4 class="left-line"> OpenMP </h4>
-              <span> </span>
-              <h4 class="left-line"> MPI </h4>
-            </div>
-          </div>
-
-        </div>
-
-        <br>
-        <hr>
-        <br>
-        <!-- Maze Generator -->
-        <div id="project-x">
-
-          <div class="project-display">
-            <a href="https://github.com/Sptailor/MazeGenerator"
-              target="_blank"><img src="images/Maze.png"
-                alt="MazeGenerator" width="500vw"></a>
-          </div>
-          <div class="project-info">
-            <div class="project-title-container">
-              <a href="https://github.com/Sptailor/MazeGenerator"
-                target="_blank"><h3>MazeGenerator</h3></a>
-              <a href="https://github.com/Sptailor/MazeGenerator"
-                target="_blank" class="github-icon">
-                <i class="uil uil-github-alt"></i>
-              </a>
+            <div>
+              <div class="mono" style="font-size: var(--fsSmall); font-weight: 700; color: #86A4C4;" data-tint="mark2">2024</div>
+              <div style="font-size: var(--fsBody2); line-height: 1.55; color: var(--body); margin-top: 6px;">teamsold.us goes live. Parallel water trap in C, OpenMP and MPI.</div>
             </div>
 
-            <p>Developed a maze generator which uses disjoint sets to keep track
-              of maze completion</p>
-            <div id="technology">
-              <span class="left-line" style="padding-left: 5px;"></span>
-              <h4>C++</h4>
-              <span class="left-line"></span>
-
+            <div>
+              <div class="mono" style="font-size: var(--fsSmall); font-weight: 700; color: #4A9EFF;" data-tint="accent">2025</div>
+              <div style="font-size: var(--fsBody2); line-height: 1.55; color: var(--body); margin-top: 6px;">LuxJewels, StockSensei and the home care site ship. B.S. completed.</div>
             </div>
-          </div>
-        </div>
-        <!-- More projects button -->
-        <div style="text-align: center; margin-top: 40px;">
-          <a href="https://github.com/Sptailor" target="_blank"
-            style="color: var(--primary-color); font-size: 1.1em; font-weight: 600; text-decoration: none; padding: 12px 24px; border: 1px solid var(--primary-alpha-30); border-radius: 25px; background: var(--primary-alpha-10); backdrop-filter: blur(10px); transition: all 0.3s ease;">View
-            more projects →</a>
-        </div>
-      </section>
-    </div>
-    <div class="split">
-      <h2><span class="split-inner">Courses Taken</span> </h2>
-    </div>
-    <div id="course-container" class="first">
-      <div id="course-outer">
-        <div id="course">
-          <h3 style="text-align: center;"> <span
-              style="border-bottom: 2px solid black; ">Java</span></h3>
-          <ul>
-            <li>
-              <p> Introduction to development of algorithms (Object Oriented
-                Programming).</p>
-            </li>
-            <li>
-              <p>Introduction to data structures(Object Oriented
-                Programming).</p>
-            </li>
-            <li>
-              <p>Secure software development.</p>
-            </li>
-          </ul>
+
+            <div>
+              <div class="mono" style="font-size: var(--fsSmall); font-weight: 700; color: #E0B463;" data-tint="prev">2026</div>
+              <div style="font-size: var(--fsBody2); line-height: 1.55; color: var(--body); margin-top: 6px;">KiOO enters developer preview. M.S. begins at San José State.</div>
+            </div>
+
         </div>
       </div>
-      <div id="course-outer">
-        <div id="course">
-          <h3 style="text-align: center;"> <span
-              style="border-bottom: 2px solid black; ">C++</span></h3>
+    </section>
 
-          <ul>
-            <li>
-              <p>Introduction to the C++, pointers, dynamic memory management,
-                and templates.</p>
-            </li>
-            <li>
-              <p>Data structures, algorithms & mathematical foundations of
-                computer science.</p>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-      <div id="course-outer">
-        <div id="course">
-          <h3 style="text-align: center;"> <span
-              style="border-bottom: 2px solid black; ">Web
-              development</span></h3>
-          <ul>
-            <li>
-              <p>Web concepts, infrastructure, development technologies &
-                multi-tiered program design.</p>
-            </li>
-            <li>
-              <p>Secure software development.</p>
-            </li>
-
-          </ul>
-
-        </div>
-      </div>
-    </div>
-    <div id="course-container">
-
-      <div id="course-outer">
-        <div id="course">
-          <h3 style="text-align: center;"> <span
-              style="border-bottom: 2px solid black; ">Database</span></h3>
-          <ul>
-            <li>
-              <p>Information systems development, development methodologies,
-                analysis & design techniques.</p>
-            </li>
-            <li>
-              <p>Database concepts, emphasis on relational databases, SQL, data
-                modeling, database design.</p>
-            </li>
-
-          </ul>
-
-        </div>
-      </div>
-      <div id="course-outer">
-        <div id="course">
-          <h3 style="text-align: center;"> <span
-              style="border-bottom: 2px solid black; ">Networking</span></h3>
-          <ul>
-            <li>
-              <p>Introduction to Networking,Parallel & Distributed
-                Computing.</p>
-            </li>
-            <p style="padding-top: 10%;"><br></p>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div id="contact">
-      <h2 class="split"><span class="split-inner">Get in
-          touch</span></h2>
-      <p>Open to new opportunities, let’s <a
-          href="https://www.linkedin.com/in/suhail-tailor-10016322b/"
-          target="_blank" style="color: #00f9ff;"> connect!</a></p>
-
-      <div id="contact-list">
-        <ul>
-          <li>
-            <a href="#">
-              <i class="uil uil-map-marker"></i>
-              <span>Los Angeles, CA</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" target="_blank">
-              <i class="uil uil-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-          </li>
-          <li>
-            <a href="tel:309-205-2647">
-              <i class="uil uil-mobile-android"></i>
-              <span>Mobile</span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:suhailtailor96@gmail.com" target="_blank">
-              <i class="uil uil-envelope-alt"></i>
-              <span>Email</span>
-            </a>
-          </li>
-        </ul>
+    <section class="card thick">
+      <div class="shead" style="margin-bottom: 20px;">
+        <h2 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.03em;">Activity</h2>
+        <span class="mono lab">last twelve months on GitHub</span>
       </div>
 
-    </div>
+      <div class="months" aria-hidden="true">
 
-    <footer>
-      <p>Designed & Developed by Suhail Tailor</p>
-    </footer>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="Main.js"></script>
+          <span class="mono lab" style="font-size: var(--fsNano);">Nov</span>
 
-  </body>
+          <span class="mono lab" style="font-size: var(--fsNano);">Dec</span>
 
+          <span class="mono lab" style="font-size: var(--fsNano);">Jan</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Feb</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Mar</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Apr</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">May</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Jun</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Jul</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Aug</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Sep</span>
+
+          <span class="mono lab" style="font-size: var(--fsNano);">Oct</span>
+
+      </div>
+
+      <div class="heat" role="img" aria-label="GitHub contribution graph for the last twelve months">
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="1" style="background: #1E4160;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="2" style="background: #2E6FA8;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="4" style="background: #8CC3FF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="3" style="background: #4A9EFF;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+        <span class="hcell" data-lvl="0" style="background: #202426;"></span>
+      </div>
+
+      <div class="heatfoot">
+        <span class="mono lab" style="font-size: var(--fsNano);">quieter</span>
+
+          <span class="hcell lg" aria-hidden="true" data-lvl="0" style="background: #202426;"></span>
+
+          <span class="hcell lg" aria-hidden="true" data-lvl="1" style="background: #1E4160;"></span>
+
+          <span class="hcell lg" aria-hidden="true" data-lvl="2" style="background: #2E6FA8;"></span>
+
+          <span class="hcell lg" aria-hidden="true" data-lvl="3" style="background: #4A9EFF;"></span>
+
+          <span class="hcell lg" aria-hidden="true" data-lvl="4" style="background: #8CC3FF;"></span>
+
+        <span class="mono lab" style="font-size: var(--fsNano);">busier</span>
+        <span class="mono lab" style="font-size: var(--fsNano); margin-left: auto;">refreshed daily from the GitHub API</span>
+      </div>
+
+      <div class="actstats">
+
+          <div>
+            <div class="mono" style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: #4A9EFF;" data-tint="accent" data-stat="commits">862</div>
+            <div class="mono lab" style="margin-top: 6px;">commits in the last year</div>
+          </div>
+
+          <div>
+            <div class="mono" style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink);" data-tint="" data-stat="repos">36</div>
+            <div class="mono lab" style="margin-top: 6px;">public repositories</div>
+          </div>
+
+          <div>
+            <div class="mono" style="font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink);" data-tint="" data-stat="streak">28</div>
+            <div class="mono lab" style="margin-top: 6px;">longest streak</div>
+          </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="card thick" style="margin-bottom: 0;">
+      <h2 class="big" style="margin: 0; font-size: 38px; font-weight: 700; letter-spacing: -0.035em; max-width: 22em; line-height: 1.12;">Looking for a software engineering internship for Summer 2027.</h2>
+      <p style="margin: 16px 0 32px; font-size: 17px; color: var(--body); max-width: 40em; line-height: 1.6;">Email reaches me fastest and I answer the same day. Happy to walk through any of the above, including the parts of KiOO I cannot screenshot.</p>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <a href="mailto:suhail.tailor@sjsu.edu" class="btn btnA" data-mag="contact">
+          <span class="ring" aria-hidden="true"></span>
+          <span class="blabel magIn" style="transform: translate(0.0px, 0.0px);">suhail.tailor@sjsu.edu</span>
+        </a>
+        <a href="tel:3092052647" class="btn btnB"><span class="ring" aria-hidden="true"></span><span class="blabel">309 205 2647</span></a>
+        <a href="https://www.linkedin.com/in/suhail-tailor-10016322b/" class="btn btnB"><span class="ring" aria-hidden="true"></span><span class="blabel">LinkedIn</span></a>
+        <a href="Resume.pdf" class="btn btnB"><span class="ring" aria-hidden="true"></span><span class="blabel">Résumé</span></a>
+      </div>
+      <div style="display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 40px; margin-top: 36px; border-top: 1px solid var(--rule2);">
+        <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">BUILT AND MAINTAINED BY SUHAIL TAILOR</span>
+        <span class="mono" style="font-size: var(--fsMicro); color: var(--dim);">SAN JOSÉ, CALIFORNIA</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
 </html>

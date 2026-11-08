@@ -1,9 +1,9 @@
 /* Analytics.
 
    Three providers, one measurement path. Vercel Web Analytics counts
-   pageviews; PostHog counts pageviews plus the interactions below and,
-   with consent, records sessions; GA4 mirrors the interactions if a
-   measurement ID is set. Custom events are deliberately NOT sent to
+   pageviews; PostHog counts pageviews plus the interactions below; GA4
+   mirrors the interactions if a measurement ID is set. Nothing here
+   records a session, so nothing has to ask. Custom events are NOT sent to
    Vercel — they are a Pro-plan feature, so on Hobby they would be
    billed-tier-gated rather than recorded, and PostHog already holds them.
 
@@ -30,7 +30,6 @@
   window.__stAnalytics = { state: 'starting' };
 
   var OPTOUT = 'st:analytics:optout';
-  var CONSENT = 'st:replay:consent';
 
   /* Private browsing and blocked site data both throw on access. */
   function read(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
@@ -106,9 +105,11 @@
          heatmaps work. Set to false for one event per interaction. */
       autocapture: true,
 
-      /* Replay stays off until it is consented to, below. The project has
-         console-log recording switched on; a visit to a portfolio is not a
-         debugging session, so it is declined here rather than server-side. */
+      /* No session replay. Recording a real visit is the one thing here
+         that would need asking, and a permission bar is too high a price
+         on a page whose job is a first impression. The masking below is
+         kept deliberately: it is inert while recording is off, so that
+         flipping the flag back on cannot quietly record anything raw. */
       disable_session_recording: true,
       enable_recording_console_log: false,
       session_recording: {
@@ -117,8 +118,6 @@
         maskTextSelector: '.ph-mask'
       }
     });
-
-    replayConsent();
   }
 
   /* GA4. */
@@ -222,61 +221,4 @@
     }
   });
 
-  /* -------------------------------------------------------------- consent --- */
-
-  /* Pageviews and clicks are anonymous and cookieless, so they run without
-     a prompt. Session replay records what a real visitor does on the page,
-     which is a different question, so it is asked and remembered. No answer
-     means no recording. */
-  function replayConsent() {
-    var choice = read(CONSENT);
-    if (choice === 'yes') { window.posthog.startSessionRecording(); return; }
-    if (choice === 'no') { return; }
-    ask();
-  }
-
-  function ask() {
-    var bar = document.createElement('div');
-    bar.className = 'consent thin';
-    bar.setAttribute('role', 'dialog');
-    bar.setAttribute('aria-label', 'Session recording');
-
-    var text = document.createElement('p');
-    text.className = 'ctext';
-    text.textContent = 'May I record this visit — anonymously, with every input masked — to see which work holds attention? Pageview counts happen either way.';
-
-    var yes = document.createElement('button');
-    yes.type = 'button';
-    yes.className = 'btn btnA cbtn';
-    yes.textContent = 'Allow';
-
-    var no = document.createElement('button');
-    no.type = 'button';
-    no.className = 'btn btnB cbtn';
-    no.textContent = 'No thanks';
-
-    function settle(answer) {
-      write(CONSENT, answer);
-      if (answer === 'yes' && window.posthog.startSessionRecording) {
-        window.posthog.startSessionRecording();
-      }
-      if (bar.parentNode) { bar.parentNode.removeChild(bar); }
-      document.removeEventListener('keydown', onKey);
-    }
-
-    function onKey(e) { if (e.key === 'Escape') { settle('no'); } }
-
-    yes.addEventListener('click', function () { settle('yes'); });
-    no.addEventListener('click', function () { settle('no'); });
-    document.addEventListener('keydown', onKey);
-
-    var row = document.createElement('div');
-    row.className = 'crow';
-    row.appendChild(yes);
-    row.appendChild(no);
-
-    bar.appendChild(text);
-    bar.appendChild(row);
-    document.body.appendChild(bar);
-  }
 })();

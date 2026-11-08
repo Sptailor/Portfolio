@@ -55,7 +55,7 @@ nothing is sent.
 | Provider | Carries | Plan |
 | --- | --- | --- |
 | Vercel Web Analytics | pageviews only | Hobby: 2,500 events/mo, ~1 month retention |
-| PostHog | pageviews, the events below, consented replay | Free: 1M events + 5k replays/mo |
+| PostHog | pageviews and the events below | Free: 1M events/mo |
 | GA4 | the events below, if a measurement ID is set | free |
 
 Custom events are not sent to Vercel on purpose: they are a Pro-plan
@@ -80,14 +80,17 @@ it has no per-visitor opt-out.
 
 ### Session replay
 
-Off until it is allowed. Pageviews and clicks are anonymous and cookieless
-so they run without a prompt; replay watches a real visit, so a bar in the
-bottom-right asks, and the answer is remembered in `localStorage`. Dismissing
-it counts as no. All inputs are masked; add `ph-mask` to any element whose
-text should be masked too, or `ph-no-capture` to block it outright.
+Off, and there is no consent bar. Recording a real visit is the one thing
+here that would need asking, and a permission prompt is too high a price on
+a page whose job is a first impression — so the recording went instead of
+the prompt. Pageviews and clicks stay: they are anonymous, cookieless and
+carry no session.
 
-Replay also has to be switched on in PostHog under **Settings → Project →
-Session replay**, or `startSessionRecording()` has nothing to record.
+`disable_session_recording` is what switches it off. The masking beside it is
+inert while recording is off and is kept on purpose, so turning the flag back
+on cannot quietly record anything raw. It would also need switching on in
+PostHog under **Settings → Project → Session replay**, and it would need the
+prompt back.
 
 ### Reading the data from Claude Code
 

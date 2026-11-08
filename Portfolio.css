@@ -217,6 +217,16 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .wrap { padding: 0 14px; }
   .card { padding: 26px 20px; border-radius: 18px; }
   .drawer { width: 84px; left: 10px; }
+  /* The drawer starts closed at this width, so the hint tab is permanent
+     rather than occasional. Shorter, and still: the drawer only holds jump
+     links to five sections a phone reaches by scrolling anyway, so neither
+     animation is earning the attention it takes from the work. The glass
+     tab and its chevron say "open me" without moving. Touch has no hover,
+     so the widen-on-hover goes too — a press that became a scroll used to
+     latch it open at 42px. */
+  .handle, .pulse { animation: none; }
+  .handle { height: 48px; margin-top: -24px; }
+  .handle:hover { width: 32px; }
   .mast { grid-template-columns: 1fr; gap: 28px; }
   .abt { grid-template-columns: 1fr; gap: 8px; }
   /* the row header has five children: keep the title and the expand control on

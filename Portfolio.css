@@ -218,14 +218,16 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .card { padding: 26px 20px; border-radius: 18px; }
   .drawer { width: 84px; left: 10px; }
   /* The drawer starts closed at this width, so the hint tab is permanent
-     rather than occasional. Shorter, and still: the drawer only holds jump
-     links to five sections a phone reaches by scrolling anyway, so neither
-     animation is earning the attention it takes from the work. The glass
-     tab and its chevron say "open me" without moving. Touch has no hover,
-     so the widen-on-hover goes too — a press that became a scroll used to
-     latch it open at 42px. */
-  .handle, .pulse { animation: none; }
-  .handle { height: 48px; margin-top: -24px; }
+     rather than occasional: shorter, and without the nudge, which reads as
+     a notification when it never goes away. Dropping nudge is safe because
+     its keyframes only translate, and both ends sit at zero.
+     The pulse keeps its animation on purpose. `ping` scales and fades, so
+     stopping it does not freeze the dot mid-pulse — it drops back to the
+     plain 9px opaque circle underneath, which shouts louder than the
+     chevron it sits behind. Animating is the quieter of the two.
+     Touch has no hover, so the widen-on-hover goes too: a press that
+     became a scroll used to latch it open at 42px. */
+  .handle { height: 48px; margin-top: -24px; animation: none; }
   .handle:hover { width: 32px; }
   .mast { grid-template-columns: 1fr; gap: 28px; }
   .abt { grid-template-columns: 1fr; gap: 8px; }

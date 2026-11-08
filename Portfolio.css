@@ -238,3 +238,40 @@ main > section:nth-of-type(6)::after { animation-delay: -7.5s; }
   .lead { font-size: 22px !important; }
   .big { font-size: 24px !important; }
 }
+
+/* ----------------------------------------------- session replay consent --- */
+
+/* Bottom-right: the drawer is fixed on the left and vertically centred, so
+   this corner is the one that is always free. .thin gives it the same glass
+   as the rest of the chrome. */
+.consent {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 60;
+  width: min(23rem, calc(100vw - 52px));
+  padding: 16px 18px;
+  border-radius: 14px;
+  animation: consentIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ctext {
+  margin: 0 0 13px;
+  font-size: var(--fsBody2);
+  line-height: 1.5;
+  color: var(--body);
+}
+.crow { display: flex; gap: 9px; flex-wrap: wrap; }
+.cbtn { font-size: var(--fsBody2); padding: 9px 15px; cursor: pointer; }
+
+@keyframes consentIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent { animation: none; }
+}
+
+@media (max-width: 700px) {
+  .consent { left: 16px; right: 16px; bottom: 16px; width: auto; }
+}

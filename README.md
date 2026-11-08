@@ -20,6 +20,7 @@ Vanilla HTML, CSS and JavaScript. No framework, no build step — the files that
 index.html                     markup
 Portfolio.css                  all styles
 Main.js                        canvas, drawer, accordion, theme, magnetic labels
+analytics.js                   PostHog, Vercel Web Analytics, GA4
 Resume.pdf
 assets/                        images used by the site, favicon, OG image
 data/activity.json             GitHub contribution snapshot
@@ -44,6 +45,57 @@ python3 -m http.server
 ```
 
 Then open <http://localhost:8000>. A server is needed rather than opening the file directly, because the activity fetch and the webfonts are blocked under `file://`.
+
+## Analytics
+
+`analytics.js` holds all three providers and the config block that switches
+them on. An empty string leaves a provider dormant — nothing loads and
+nothing is sent.
+
+| Provider | Carries | Plan |
+| --- | --- | --- |
+| Vercel Web Analytics | pageviews only | Hobby: 2,500 events/mo, ~1 month retention |
+| PostHog | pageviews, the events below, consented replay | Free: 1M events + 5k replays/mo |
+| GA4 | the events below, if a measurement ID is set | free |
+
+Custom events are not sent to Vercel on purpose: they are a Pro-plan
+feature, so PostHog carries them instead.
+
+Events: `resume_download`, `project_click`, `project_expand`,
+`github_click`, `linkedin_click`, `contact_click`. One delegated listener on
+the document reads every click and emits exactly one event, so a GitHub link
+inside a project row is a `github_click` carrying the project name rather
+than two events. `capture_pageview` is pinned to `true` rather than the
+`history_change` that the 2026-08-30 defaults would pick, because the nav is
+hash links on one document and would otherwise add a pageview per jump.
+
+### Keeping my own visits out
+
+Load the site once per browser with `?analytics=off`. The flag lives in
+`localStorage`, so it is per browser and per device, and clearing site data
+clears it. `?analytics=on` puts the browser back. Localhost and automated
+browsers are excluded without being asked. An opted-out browser never
+fetches the Vercel script at all, which is the only lever Vercel offers —
+it has no per-visitor opt-out.
+
+### Session replay
+
+Off until it is allowed. Pageviews and clicks are anonymous and cookieless
+so they run without a prompt; replay watches a real visit, so a bar in the
+bottom-right asks, and the answer is remembered in `localStorage`. Dismissing
+it counts as no. All inputs are masked; add `ph-mask` to any element whose
+text should be masked too, or `ph-no-capture` to block it outright.
+
+Replay also has to be switched on in PostHog under **Settings → Project →
+Session replay**, or `startSessionRecording()` has nothing to record.
+
+### Reading the data from Claude Code
+
+```sh
+claude mcp add --transport http posthog https://mcp.posthog.com/mcp -s user
+```
+
+Then run `/mcp` and log in. Calling the MCP tools is free.
 
 ## Browser support
 

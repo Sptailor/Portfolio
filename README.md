@@ -1,6 +1,6 @@
 # Portfolio
 
-Personal site for Suhail Tailor — software engineering master's student at San José State, with four projects running in production and a fifth in developer preview.
+Personal site for Suhail Tailor — Software Engineering master's student at San José State University, with five deployed applications and one project in developer preview.
 
 **[portfolio-sptailor.vercel.app](https://portfolio-sptailor.vercel.app/)**
 
